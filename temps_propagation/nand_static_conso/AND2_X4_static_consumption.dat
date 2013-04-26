@@ -1,0 +1,14 @@
+leakage_power() {
+    when :  " !A1 & !A2 "  ;
+      value : 142.51073392 
+ } 
+     when :  " !A1 & A2 "  ;
+      value : 116.69558801 
+ } 
+     when :  " A1 & !A2 "  ;
+      value : 114.81739243 
+ } 
+     when :  " A1 & A2 "  ;
+      value : 113.20359282 
+ } 
+ 

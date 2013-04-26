@@ -29,7 +29,7 @@ $(WORKSIM):  $(SIMU_MAKEFILE) $(SIMU_CMDFILE) $(SIMU_DOFILE)
 
 clean:
 	@rm -rf $(WORKSIM)
-
+	rm -f $(SRCDIR)/*.swp
 
 
 
