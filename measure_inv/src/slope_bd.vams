@@ -1,0 +1,47 @@
+// La maquette de test écrite en language Verilog-ams
+// On prend 1fs dans le timescale pour que les mesures de temps dans le domaine "numérique" soient précises.
+// (à confirmer)
+`timescale 1ns/1fs
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module slope_bd( 
+                        input wreal din,
+                        output wreal dout ,
+                        input wire fin_test,
+                        input wire get_val 
+                          );
+
+// Paramètre de tension récupéré du fichier de commande
+parameter real  alim_voltage = $param("valim") ; // volts
+
+// Les signaux logiques et électriques
+electrical vss          ; // La référence de masse
+electrical vdd_dut      ; // L'alimentation du dispositif à tester
+electrical vdin , vdout ;
+ground vss ;
+branch (vdin,vss) pulse_generator ;
+branch (vdd_dut,vss) alimentation ;
+branch (vdout,vss) sortie ;
+
+// Le circuit à tester
+INV_X1 dut (.VDD(vdd_dut),.VSS(vss),.A(vdin),.ZN(vdout)) ; 
+
+
+analog
+begin
+   V(alimentation) <+ alim_voltage ;
+   V(pulse_generator) <+ din*alim_voltage ;
+   @(posedge fin_test)
+     $finish ;
+end
+real tmpdout ;
+
+always @(posedge get_val)
+    tmpdout = V(vdout)/alim_voltage ;
+
+assign dout = tmpdout ;
+
+///////////////////////////////////////////////////////////////
+endmodule
