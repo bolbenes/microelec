@@ -15,7 +15,7 @@
 
 
 .model a2d_std a2d mode=std_vsrc vth1=(valim/2) vth2=(valim/2)
-.model d2a_std d2a mode=std_vsrc vhi=valim vlo=0 trise=0.001n tfall=0.001n
+.model d2a_std d2a mode=std_vsrc vhi=valim vlo=0 trise=100n tfall=100n
 .defhook d2a_std a2d_std
 
 * Précision des simulations analogiques

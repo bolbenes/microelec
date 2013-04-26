@@ -6,7 +6,7 @@
 module static_consumption_tb;
 
 // Paramètres du testbench
-parameter real digital_tick    = 100          ;    // (ns) Temps entre deux transitions du signal d'entrée
+parameter real digital_tick    = 700          ;    // (ns) Temps entre deux transitions du signal d'entrée
 
 // Les signaux logiques et électriques
 logic  din                ; // Signal logique destiné à piloter le test
@@ -17,6 +17,7 @@ real capa_charge_val      ; // La valeur de la capacité de charge
 real measure_int               ; // La valeur du temps de transition en entrée
 logic start_measure           ; // La mesure de l'instant de changement à l'entrée de l'inverseur
 
+
 // On instancie la maquette de test, en utilisant la connection générique pour simplifie l'écriture
 static_consumption_bd bd0  (
                           .din(din), 
@@ -26,6 +27,8 @@ static_consumption_bd bd0  (
                           .start_measure(start_measure),
                           .fin_test(fin_test)
                           ) ;
+
+
 
 // La liste des points de test à effectuer est déterminée par 2 tables de paramètres directement
 // extraite du fichier Liberty de la bibliothèque NANGATE
@@ -89,7 +92,7 @@ begin:simu
        end
        $fwrite (File, " ;\n");
 
-       $fwrite(File, "      value : %10.8f \n } \n ", RESULT_TAB[din_index][din2_index]);
+       $fwrite(File, "      value : %10.8f \n } \n ", -RESULT_TAB[din_index][din2_index]*1.1*10**9);
 
 
        
