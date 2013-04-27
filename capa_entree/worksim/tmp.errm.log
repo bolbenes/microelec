@@ -1,0 +1,46 @@
+START report: Sat Apr 27 17:39:30 2013 
+** Note: (vasim - 3800) Running Questa ADMS 12.2 Thu Feb  7 10:59:42 GMT 2013
++   on a405-04 Linux x86_64(3.2.0-4-amd64) #1 SMP Debian 3.2.41-2
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/std.standard"
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/ieee.std_logic_1164"
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/ieee.math_real"
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/DISCIPLINES.physical_constants"
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/DISCIPLINES.electromagnetic_system"
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/MGC_AMS.wreal_pkg"
+Loading "/stud/users/promo14/hilaire/CBN/capa_entree/worksim/work.input_capa_bd"
+Loading "/comelec/softs/opt/nangate/TPT/verilogams/NangateLibWithParasitics.AND2_X4"
+Loading "/comelec/softs/opt/nangate/TPT/verilogams/NangateLibWithParasitics.BUF_X4"
+Loading "/stud/users/promo14/hilaire/CBN/capa_entree/worksim/work.cmos_transition"
+Load done
+** Warning: (eldo - 252)  In file "./tmp.cmd" line 508:
++   OBJECT "BD0.AND2.C_X_PM_AND2_X4$VSS_C1": Self-connected object not created.
+** Warning: (eldo - 252)  In file "./tmp.cmd" line 516:
++   OBJECT "BD0.AND2.C_X_PM_AND2_X4$VSS_C7": Self-connected object not created.
+** Warning: (eldo - 252)  In file "./tmp.cmd" line 11565:
++   OBJECT "BD0.BUFFER1.C_X_PM_BUF_X4$VSS_C2": Self-connected object not created.
+** Warning: (eldo - 526)  MODEL "NMOS_VTG":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "NMOS_VTG":   ACDE = 1 given in the model card results in effective acde = 0.276941 which is too small.
+
+** Warning: (eldo - 526)  MODEL "PMOS_VTG":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "PMOS_VTG":   ACDE = 1 given in the model card results in effective acde = 0.300892 which is too small.
+
+** Warning: (eldo - 526)  MODEL "NMOS_VTL":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "NMOS_VTL":   ACDE = 1 given in the model card results in effective acde = 0.276941 which is too small.
+
+** Warning: (eldo - 526)  MODEL "PMOS_VTL":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "PMOS_VTL":   ACDE = 1 given in the model card results in effective acde = 0.300892 which is too small.
+
+** Warning: (eldo - 526)  MODEL "NMOS_VTH":   ACDE = 1 given in the model card results in effective acde = 0.280299 which is too small.
+
+** Warning: (eldo - 526)  MODEL "PMOS_VTH":   ACDE = 1 given in the model card results in effective acde = 0.300892 which is too small.
+
+** Warning: (eldo - 526)  MODEL "NMOS_THKOX":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "NMOS_THKOX":   ACDE = 1 given in the model card results in effective acde = 0.313142 which is too small.
+
+** Warning: (eldo - 526)  MODEL "PMOS_THKOX":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "PMOS_THKOX":   ACDE = 1 given in the model card results in effective acde = 0.321157 which is too small.
+
+** Warning: (eldo - 415)  COMMAND .TRAN: Parameter TPRINT is set to: 1.000000e-06.
++   This is because more than 2000000 points would be created.
+** Note: (vasim - 3201) In BD0(input_capa_bd), at line 62, in the file /stud/users/promo14/hilaire/CBN/capa_entree/src/capa_entree_bd.vams
++   $finish(0)

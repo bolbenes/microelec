@@ -1,0 +1,1 @@
+# cosim -L nangatelib -Lf /tmp/.spice -l transcript_ms -lib /stud/users/promo14/hilaire/CBN/capa_entree/worksim/work -c -msgmode tran -pli {/comelec/softs/opt/mentor/ams/ams_12_2/libs/MS/OS/$AMS_VCO/libVLA2D$AMS_SLIB_EXT} -slave -suppress 8537 -suppress 3122 -warning 3584,10000 capa_entree_tb 

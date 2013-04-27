@@ -1,0 +1,23 @@
+<interfaceDefinition version='1.2' language='verilog' kind='module' name='vloga_dig_submod_input_capa_bd'>
+    <macroList>
+
+      <macro name='alim_voltage' initializer='0.0' type='real' paramKind='parameter'> </macro>
+      <macro name='slew_lower_threshold_pct' initializer='0.0' type='real' paramKind='parameter'> </macro>
+      <macro name='slew_upper_threshold_pct' initializer='0.0' type='real' paramKind='parameter'> </macro>
+      <macro name='input_threshold_pct' initializer='0.0' type='real' paramKind='parameter'> </macro>
+      <macro name='output_threshold_pct' initializer='0.0' type='real' paramKind='parameter'> </macro>
+
+    </macroList>
+    <portList>
+
+      <port name='capa_charge_val' direction='input' type='wreal' kind=''> </port>
+      <port name='capa_test_val' direction='input' type='wreal' kind=''> </port>
+      <port name='circuit_propagation_time' direction='output' type='wreal' kind=''> </port>
+      <port name='test_propagation_time' direction='output' type='wreal' kind=''> </port>
+      <port name='fin_test' direction='input' type='' kind=''> </port>
+      <port name='\_ana_evt_sig_#1#74#\ ' direction='input' type='' kind=''> </port>
+      <port name='\_ana_evt_sig_#2#77#\ ' direction='input' type='' kind=''> </port>
+      <port name='\_ana_evt_sig_#3#80#\ ' direction='input' type='' kind=''> </port>
+
+    </portList>
+</interfaceDefinition>

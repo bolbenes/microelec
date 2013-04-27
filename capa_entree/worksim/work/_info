@@ -1,0 +1,86 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 d/stud/users/promo14/hilaire/CBN/capa_entree/worksim
+!i10d 8192
+!i10e 25
+!i10f 100
+vcapa_entree_tb
+Z1 DXx6 sv_std 3 std 0 22 `a<MJET1=lN@jzbA7kHm;1
+!s110 1367077169
+!i10b 1
+Z2 !s100 QOAVjlSLI08i`O<e_FGG12
+Z3 I1@zo4I@SFOVCYEU2aI_MR3
+Z4 V`JN@9S9cnhjKRR_L]QIcM3
+Z5 !s105 capa_entree_tb_sv_unit
+S1
+Z6 d/stud/users/promo14/hilaire/CBN/capa_entree/worksim
+Z7 w1367077125
+Z8 8/stud/users/promo14/hilaire/CBN/capa_entree/src/capa_entree_tb.sv
+Z9 F/stud/users/promo14/hilaire/CBN/capa_entree/src/capa_entree_tb.sv
+L0 6
+Z10 OL;L;10.2;57
+r1
+!s85 0
+31
+!s108 1367077169.399026
+!s107 /stud/users/promo14/hilaire/CBN/capa_entree/src/capa_entree_tb.sv|
+Z11 !s90 -work|work|/stud/users/promo14/hilaire/CBN/capa_entree/src/capa_entree_tb.sv|
+Z12 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+:cmos_transition
+Z13 VE173iB31K5B10S52GE70;6
+Z14 w1366707518
+Z15 ncmos_transition
+Z16 F/stud/users/promo14/hilaire/CBN/capa_entree/src/cmos_transition.vams
+R6
+Z17 !s208 E173iB31K5B10S52GE70;6
+Z18 !s206 1367077161
+Z19 !s205 +ogr  -k 2005 
+!s20a 0
+!s209 6
+!s207 27
+!s204 1
+!s203 4210
+!s202 228
+!s201 8
+!s8d adms
+:input_capa_bd
+Z20 VXEF3R0F2@<10<BF0ZDC1b6
+R18
+Z21 w1367075427
+Z22 !s205  +ogr  -k 2005 
+Z23 ninput_capa_bd
+Z24 F/stud/users/promo14/hilaire/CBN/capa_entree/src/capa_entree_bd.vams
+R6
+!s20a 0
+!s209 6
+Z25 !s208 XEF3R0F2@<10<BF0ZDC1b6
+!s207 28
+!s204 1
+Z26 !s203 50907
+!s202 1245
+!s201 8
+!s8d adms
+vvloga_dig_submod_input_capa_bd
+Z27 IzU:zJCaHgKknG37h<ElTj2
+R4
+R6
+Z28 w1367077162
+Z29 8/stud/users/promo14/hilaire/CBN/capa_entree/src/capa_entree_bd.vams
+R24
+Z30 8/stud/users/promo14/hilaire/CBN/capa_entree/worksim/work/_CG/vloga_dig_submod_input_capa_bd.v
+Z31 F/stud/users/promo14/hilaire/CBN/capa_entree/worksim/work/_CG/vloga_dig_submod_input_capa_bd.v
+L0 4
+R10
+r1
+31
+Z32 o-work /stud/users/promo14/hilaire/CBN/capa_entree/worksim/work -quiet -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z33 !s110 1367077162
+Z34 !s100 3SRmCLKL6T:N]JUSYWJ@P0
+Z35 !s108 1367077162.833262
+Z36 !s107 /stud/users/promo14/hilaire/CBN/capa_entree/worksim/work/_CG/vloga_dig_submod_input_capa_bd.v|
+Z37 !s90 -work|/stud/users/promo14/hilaire/CBN/capa_entree/worksim/work|-adms_unitsinfo|/tmp/valoghFBund|-quiet|/stud/users/promo14/hilaire/CBN/capa_entree/worksim/work/_CG/vloga_dig_submod_input_capa_bd.v|
+!i10b 1
+!s85 0
