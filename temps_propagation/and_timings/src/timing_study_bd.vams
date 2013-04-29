@@ -18,6 +18,8 @@ module timing_study_bd(
                         input  wreal tt_val          ,   // Le temps de transition en entrée du signal de test
                         output wreal start_time      ,   // L'instant de transition de l'entrée
                         output wreal stop_time       ,   // L'instant de transition de la sortie
+                        output wreal start_tran_time, // instant de debut de la transition pour dout 
+                        output wreal stop_tran_time, // instant de fin de transition pour dout
                         input  wire fin_test             // Signalement de la fin de la simu par le testbench
                           ) ;
 
@@ -52,7 +54,7 @@ branch (vdd_dut,vss) alimentation_dut     ; //  L'alimentation du dispositif à 
 branch (dout,vss) capa_charge         ; //  La capacité de charge en sortie
 
 // Le circuit à tester
-AND2_X4 and2 (.VDD(vdd_dut),.VSS(vss),.A1(din_real0),.A2(din_real_1),.ZN(dout)) ; 
+AND2_X4 and2 (.VDD(vdd_dut),.VSS(vss),.A1(din_real0),.A2(din_real1),.ZN(dout)) ; 
 
 
 // Le génrateur de transitions réalistes
@@ -86,21 +88,65 @@ end
 // Donc on passe par une variable intermédiaire...
 // (YM : à confirmer, voir si on ne peut faire plus simple)
 real tmp_start_time      ; 
-real tmp_stop_time       ; 
+real tmp_stop_time       ;
+real tmp_start_tran_time      ; 
+real tmp_stop_tran_time       ;
+ 
+// detect falling edge of din0
 always
  @(cross(V(din_real0)-alim_voltage*input_threshold_pct, +1,1e-15,1e-4 ))
     tmp_start_time = $abstime ;
 
+// detect rising edge of din0
+always
+ @(cross(V(din_real0)-alim_voltage*input_threshold_pct, -1,1e-15,1e-4 ))
+    tmp_start_time = $abstime ;
+
+// detect falling edge of din1
 always
  @(cross(V(din_real1)-alim_voltage*input_threshold_pct, +1,1e-15,1e-4 ))
     tmp_start_time = $abstime ;
 
+// detect rising edge of din1
+always
+ @(cross(V(din_real1)-alim_voltage*input_threshold_pct, -1,1e-15,1e-4 ))
+    tmp_start_time = $abstime ;
+
+// detect falling edge of dout
+always
+ @(cross(V(capa_charge)-alim_voltage*output_threshold_pct, +1,1e-15,1e-4 ))
+    tmp_stop_time = $abstime   ;
+
+// detect rising edge of dout
 always
  @(cross(V(capa_charge)-alim_voltage*output_threshold_pct, -1,1e-15,1e-4 ))
     tmp_stop_time = $abstime   ;
+
+// detect rising dout
+always
+ @(cross(V(capa_charge)-alim_voltage*slew_lower_threshold_pct, +1,1e-15,1e-4 ))
+    tmp_start_tran_time = $abstime   ;
+
+// detect rising dout
+always
+ @(cross(V(capa_charge)-alim_voltage*slew_upper_threshold_pct, +1,1e-15,1e-4 ))
+    tmp_stop_tran_time = $abstime   ;
+
+// detect falling dout
+always
+ @(cross(V(capa_charge)-alim_voltage*slew_upper_threshold_pct, -1,1e-15,1e-4 ))
+    tmp_start_tran_time = $abstime   ;
+
+// detect falling dout
+always
+ @(cross(V(capa_charge)-alim_voltage*slew_lower_threshold_pct, -1,1e-15,1e-4 ))
+    tmp_stop_tran_time = $abstime   ;
+
 // transmission des valeurs calculées vers le monde numérique
 assign start_time = tmp_start_time ;
 assign stop_time = tmp_stop_time ;
+assign start_tran_time = tmp_start_tran_time ;
+assign stop_tran_time = tmp_stop_tran_time ;
 
 // Debug
 // Vérification des temps de montée en entrée de l'inverseur
