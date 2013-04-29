@@ -1,0 +1,32 @@
+WORKLIB=work
+NANGATE_LIB=/comelec/softs/opt/nangate/TPT/verilogams/NangateLibWithParasitics
+VAMS_FILES=$(notdir $(wildcard $(SRCDIR)/*.vams))
+SV_FILES=$(notdir $(wildcard $(SRCDIR)/*.sv))
+TARGET=$(patsubst %.sv,.%.tag,$(SV_FILES)) $(patsubst %.vams,.%.tag,$(VAMS_FILES))
+VPATH=$(SRCDIR)
+
+.PHONY: compile simu_gui simu_batch
+
+compile: $(TARGET)
+
+
+.%.tag: %.sv |$(WORKLIB) 
+	vlog_ams  -work $(WORKLIB) $< && touch $@
+
+.%.tag: %.vams |$(WORKLIB) 
+	valog  -work $(WORKLIB) $< && touch $@
+
+simu_gui: compile .mapped
+	vasim -L nangatelib -cmd tmp.cmd  $(TB_MODULE) -do tmp.do
+
+simu_batch: compile .mapped
+	vasim -c -L nangatelib -cmd tmp.cmd  $(TB_MODULE) -do tmp.do
+
+.mapped: |$(WORKLIB) $(NANGATE_LIB)
+	vamap nangatelib $(NANGATE_LIB) 
+	vamap work $(WORKLIB) 
+	touch .mapped
+
+$(WORKLIB):
+	valib $@
+
