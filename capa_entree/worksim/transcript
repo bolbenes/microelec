@@ -1,6 +1,6 @@
 # vasim -c -L nangatelib -cmd tmp.cmd capa_entree_tb -do tmp.do
 # ** Note: (vasim - 3800) Running Questa ADMS 12.2 Thu Feb  7 10:59:42 GMT 2013
-# +   on a405-04 Linux x86_64(3.2.0-4-amd64) #1 SMP Debian 3.2.41-2
+# +   on a507-4c Linux x86_64(3.2.0-4-amd64) #1 SMP Debian 3.2.41-2
 # ELDO 12.2 (64 bits) Thu Feb  7 09:07:01 GMT 2013
 # Copyright 2000 Mentor Graphics Corporation
 # All Rights Reserved
@@ -42,6 +42,7 @@
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
+# ** Note: (vasim - 1308) Converters inserted. See "/stud/users/promo14/hilaire/CBN/capa_entree/worksim/tmp.conv" for details
 # Load done
 # do tmp.do 
 #  ----------------------------
@@ -57,37 +58,14 @@
 # Analog data pre-processing done
 # -----------| Summary on Analog Data |-----------
 # Analog kernel and ELDO devices memory space allocated (MB):    494
-# 584 devices
-# 336 nodes
-# 0 input signals
+# 583 devices
+# 332 nodes
+# 1 input signals
+# 1 functional instances
 # ** Note: Extra devices and nodes might be created during simulation (access resistors, internal nodes...).
 # ** Note: Extra Memory might be allocated during simulation.
 # ----------- Summary done -----------
-#     Parsing  cpu Time 0h 0mn 0s 140ms 
-# ** Warning: (eldo - 108)   NODE "BD0.AND2.N_A2_M0_G": This node is a floating gate.
-#    List of MOS devices connected to that node follows:
-#    --> BD0.AND2.M_M8
-# ** Warning: (eldo - 108)   NODE "BD0.AND2.N_A2_M3_G": This node is a floating gate.
-#    List of MOS devices connected to that node follows:
-#    --> BD0.AND2.M_M11
-# ** Warning: (eldo - 108)   NODE "BD0.AND2.N_A2_M8_G": This node is a floating gate.
-#    List of MOS devices connected to that node follows:
-#    --> BD0.AND2.M_M0
-# ** Warning: (eldo - 29)   Such messages will not be displayed in future. Set .option MSGNODE = 0 to receive all such warnings.
-# ** Warning: (eldo - 118)   NODE "BD0.AND2.X_PM_AND2_X4$A2_28": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.AND2.X_PM_AND2_X4$A2_27": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.AND2.X_PM_AND2_X4$A2_25": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.AND2.X_PM_AND2_X4$A2_24": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.AND2.X_PM_AND2_X4$A2_20": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.AND2.X_PM_AND2_X4$A2_18": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.BUFFER1.X_PM_BUF_X4$A_23": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.BUFFER1.X_PM_BUF_X4$A_19": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.BUFFER1.X_PM_BUF_X4$A_10": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.BUFFER1.X_PM_BUF_X4$A_9": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.BUFFER2.X_PM_BUF_X4$A_23": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.BUFFER2.X_PM_BUF_X4$A_19": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.BUFFER2.X_PM_BUF_X4$A_10": No DC path to ground.
-# ** Warning: (eldo - 118)   NODE "BD0.BUFFER2.X_PM_BUF_X4$A_9": No DC path to ground.
+#     Parsing  cpu Time 0h 0mn 0s 110ms 
 # ** Warning: (eldo - 526)  MODEL "NMOS_VTG":  Parameter XL used for version >= 4.2. Parameter ignored! 
 # ** Warning: (eldo - 526)  MODEL "NMOS_VTG":   ACDE = 1 given in the model card results in effective acde = 0.276941 which is too small.
 # ** Warning: (eldo - 526)  MODEL "PMOS_VTG":  Parameter XL used for version >= 4.2. Parameter ignored! 
@@ -103,6 +81,7 @@
 # Analog DC computation done
 # Digital computation at time 0 fs starting
 # Digital computation at time 0 fs done
+# Digital computation at time 0 fs done
 # Quiescent point done
 #  -----------------------------
 # | Transient analysis starting |
@@ -115,26 +94,26 @@
 #   EPS    = 1.000000e-07
 # Starting analog time is 0.000000 ns
 # Simulation time for "run -all" is 1.000000E+05 ns
-# ** Note: (vasim - 3201) In BD0(input_capa_bd), at line 62, in the file /stud/users/promo14/hilaire/CBN/capa_entree/src/capa_entree_bd.vams
+# ** Note: (vasim - 3201) In BD0(input_capa_bd), at line 61, in the file /stud/users/promo14/hilaire/CBN/capa_entree/src/capa_entree_bd.vams
 # +   $finish(0)
 # ................................................
-# Simulation progress                : 0.39% (t = 385,000,001 fs)
-# Elapsed CPU time                   :  0h  0mn  0s 470    ( 0h  0mn  0s 470)
-# Elapsed time                       :  0h  0mn  3s   0    ( 0h  0mn  3s   0)
-# CPU usage                          :  15%                ( 15%)
+# Simulation progress                : 3.54% (t = 3,535 ns)
+# Elapsed CPU time                   :  0h  0mn  8s 650    ( 0h  0mn  8s 650)
+# Elapsed time                       :  0h  0mn 12s   0    ( 0h  0mn 12s   0)
+# CPU usage                          :  72%                ( 72%)
 # Transient analysis done
-#    Global cpu Time 0h 0mn 0s 470ms 
-#    Global Elapsed Time 0h 0mn 3s 
+#    Global cpu Time 0h 0mn 8s 650ms 
+#    Global Elapsed Time 0h 0mn 12s 
 # -----------| Simulation Information |-----------
-# Analog kernel and ELDO devices memory size allocated (MB):  494.2
-# 584 devices
-# 496 nodes
-# 2320 MOS or BIP model calls
-# 823 steps computed
+# Analog kernel and ELDO devices memory size allocated (MB):  494.3
+# 583 devices
+# 492 nodes
+# 1155576 MOS or BIP model calls
+# 14503 steps computed
 # ----------- Simulation Information done -----------
-# --- Simulation stopped at time 385,000,001 fs
-# Newton iteration            :  2.042527
-# Total of transactions       :  245
-# Total of events             :  229
-# Values sent to Modelsim     :  49
-# Values coming from Modelsim :  65
+# --- Simulation stopped at time 3,535 ns
+# Newton iteration            :  3.265393
+# Total of transactions       :  4683
+# Total of events             :  4667
+# Values sent to Modelsim     :  1524
+# Values coming from Modelsim :  1120

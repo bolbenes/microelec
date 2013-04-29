@@ -1,0 +1,17 @@
+START report: Mon Apr 29 12:15:21 2013 
+** Note: (vasim - 3800) Running Questa ADMS 12.2 Thu Feb  7 10:59:42 GMT 2013
++   on a507-4c Linux x86_64(3.2.0-4-amd64) #1 SMP Debian 3.2.41-2
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/std.standard"
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/ieee.std_logic_1164"
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/ieee.math_real"
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/DISCIPLINES.physical_constants"
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/DISCIPLINES.electromagnetic_system"
+Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/MGC_AMS.wreal_pkg"
+Loading "/stud/users/promo14/hilaire/CBN/conso_dyn/worksim/work.conso_dyn_bd"
+Loading "/comelec/softs/opt/nangate/TPT/verilogams/NangateLibWithParasitics.AND2_X4"
+Loading "/stud/users/promo14/hilaire/CBN/conso_dyn/worksim/work.cmos_transition"
+Load done
+** Warning: (eldo - 252)  In file "./tmp.cmd" line 508:
++   OBJECT "BD0.AND2.C_X_PM_AND2_X4$VSS_C1": Self-connected object not created.
+** Warning: (eldo - 252)  In file "./tmp.cmd" line 516:
++   OBJECT "BD0.AND2.C_X_PM_AND2_X4$VSS_C7": Self-connected object not created.

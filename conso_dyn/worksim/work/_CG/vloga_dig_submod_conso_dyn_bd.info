@@ -1,0 +1,16 @@
+[VERILOG Module]
+NAME = vloga_dig_submod_conso_dyn_bd 
+SOURCE = /stud/users/promo14/hilaire/CBN/conso_dyn/worksim/work/_CG/vloga_dig_submod_conso_dyn_bd.v 
+LINE = 4
+[Generics]
+( alim_voltage   real   0.000000e+00 ) 
+( slew_lower_threshold_pct   real   0.000000e+00 ) 
+( slew_upper_threshold_pct   real   0.000000e+00 ) 
+( input_threshold_pct   real   0.000000e+00 ) 
+( output_threshold_pct   real   0.000000e+00 ) 
+[Ports]
+(PORT SIGNAL capa_charge_val  IN REAL)
+(PORT SIGNAL internal_energy  OUT REAL)
+(PORT SIGNAL fin_test  IN STD_LOGIC)
+(PORT SIGNAL \_ana_evt_sig_#1#66#\\  IN STD_LOGIC)
+(PORT SIGNAL \_ana_evt_sig_#2#69#\\  IN STD_LOGIC)

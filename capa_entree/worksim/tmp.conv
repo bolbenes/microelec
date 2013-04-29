@@ -1,0 +1,16 @@
+NET :capa_entree_tb:#implicit-wire#din_cst_1
+	BIDIR
+	DtoA CONVERTER D2A_STD ELDO ["MODE = FAST_STD_LOGIC" "VH1 = 1.1" "VLO = 0" "TRISE = 1e-12" "TFALL = 1e-12"]
+		DEFHOOK /stud/users/promo14/hilaire/CBN/capa_entree/worksim/tmp.cmd(19)
+		DISCIPLINE ELECTRICAL
+		TYPE IEEE:STD_LOGIC_1164.STD_LOGIC
+		PORTS :capa_entree_tb:bd0:and2:A1;
+		WAVEFORM NAME :capa_entree_tb:#implicit-wire#din_cst_1#defhook#bidir#0
+	AtoD CONVERTER A2D_STD ELDO ["MODE = STD_LOGIC" "VTH1 = 0.55" "VTH2 = 0.55"]
+		DEFHOOK /stud/users/promo14/hilaire/CBN/capa_entree/worksim/tmp.cmd(19)
+		DISCIPLINE ELECTRICAL
+		TYPE IEEE:STD_LOGIC_1164.STD_LOGIC
+		PORTS :capa_entree_tb:bd0:and2:A1;
+		WAVEFORM NAME :capa_entree_tb:#implicit-wire#din_cst_1#defhook#0
+END NET;
+

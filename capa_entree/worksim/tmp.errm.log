@@ -1,6 +1,6 @@
-START report: Sat Apr 27 17:39:30 2013 
+START report: Mon Apr 29 10:12:32 2013 
 ** Note: (vasim - 3800) Running Questa ADMS 12.2 Thu Feb  7 10:59:42 GMT 2013
-+   on a405-04 Linux x86_64(3.2.0-4-amd64) #1 SMP Debian 3.2.41-2
++   on a507-4c Linux x86_64(3.2.0-4-amd64) #1 SMP Debian 3.2.41-2
 Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/std.standard"
 Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/ieee.std_logic_1164"
 Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/ieee.math_real"
@@ -11,6 +11,7 @@ Loading "/stud/users/promo14/hilaire/CBN/capa_entree/worksim/work.input_capa_bd"
 Loading "/comelec/softs/opt/nangate/TPT/verilogams/NangateLibWithParasitics.AND2_X4"
 Loading "/comelec/softs/opt/nangate/TPT/verilogams/NangateLibWithParasitics.BUF_X4"
 Loading "/stud/users/promo14/hilaire/CBN/capa_entree/worksim/work.cmos_transition"
+** Note: (vasim - 1308) Converters inserted. See "/stud/users/promo14/hilaire/CBN/capa_entree/worksim/tmp.conv" for details
 Load done
 ** Warning: (eldo - 252)  In file "./tmp.cmd" line 508:
 +   OBJECT "BD0.AND2.C_X_PM_AND2_X4$VSS_C1": Self-connected object not created.
@@ -42,5 +43,5 @@ Load done
 
 ** Warning: (eldo - 415)  COMMAND .TRAN: Parameter TPRINT is set to: 1.000000e-06.
 +   This is because more than 2000000 points would be created.
-** Note: (vasim - 3201) In BD0(input_capa_bd), at line 62, in the file /stud/users/promo14/hilaire/CBN/capa_entree/src/capa_entree_bd.vams
+** Note: (vasim - 3201) In BD0(input_capa_bd), at line 61, in the file /stud/users/promo14/hilaire/CBN/capa_entree/src/capa_entree_bd.vams
 +   $finish(0)

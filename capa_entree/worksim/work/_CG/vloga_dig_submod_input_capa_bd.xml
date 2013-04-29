@@ -15,9 +15,12 @@
       <port name='circuit_propagation_time' direction='output' type='wreal' kind=''> </port>
       <port name='test_propagation_time' direction='output' type='wreal' kind=''> </port>
       <port name='fin_test' direction='input' type='' kind=''> </port>
-      <port name='\_ana_evt_sig_#1#74#\ ' direction='input' type='' kind=''> </port>
-      <port name='\_ana_evt_sig_#2#77#\ ' direction='input' type='' kind=''> </port>
-      <port name='\_ana_evt_sig_#3#80#\ ' direction='input' type='' kind=''> </port>
+      <port name='\_ana_evt_sig_#1#73#\ ' direction='input' type='' kind=''> </port>
+      <port name='\_ana_evt_sig_#2#76#\ ' direction='input' type='' kind=''> </port>
+      <port name='\_ana_evt_sig_#3#79#\ ' direction='input' type='' kind=''> </port>
+      <port name='\_ana_evt_sig_#4#82#\ ' direction='input' type='' kind=''> </port>
+      <port name='\_ana_evt_sig_#5#85#\ ' direction='input' type='' kind=''> </port>
+      <port name='\_ana_evt_sig_#6#88#\ ' direction='input' type='' kind=''> </port>
 
     </portList>
 </interfaceDefinition>

@@ -30,8 +30,8 @@ parameter real  output_threshold_pct      	= 0.5 ; // fraction de la pleine excu
 
 // Les signaux logiques et électriques
 electrical din_real     ; // Signal electrique dérivé de din
-electrical dout_buf1   ; // Signal electrique de sortie du buffer1
-electrical dout_buf2   ; // Signal electrique de sortie du buffer2
+electrical dout_buf1    ; // Signal electrique de sortie du buffer1
+electrical dout_buf2    ; // Signal electrique de sortie du buffer2
 electrical dout         ; // Signal electrique de sortie de l'additionneur
 
 // Les références d'alimentation
@@ -42,12 +42,11 @@ electrical vdd_dut      ; // L'alimentation du dispositif à tester
 branch (vdd_dut,vss) alimentation_dut     ; //  L'alimentation du dispositif à mesurer
 branch (dout,vss) capa_charge         ; //  La capacité de charge en sortie
 branch (dout_buf2,vss) capa_test         ; //  La capacité de charge en sortie
-branch (dout_buf1,vss) capa_entree         ; //  La capacité de charge en sortie
 
 // Le circuit à tester
-AND2_X4 and2 (.VDD(vdd_dut),.VSS(vss),.A1(vdout_buf1),.A2(vdin_cst),.ZN(vdout)) ; 
-BUF_X4 buffer1 (.VDD(vdd_dut),.VSS(vss),.A(vdin_real),.Z(vdout_buf1));
-BUF_X4 buffer2 (.VDD(vdd_dut),.VSS(vss),.A(vdin_real),.Z(vdout_buf2));
+AND2_X4 and2 (.VDD(vdd_dut),.VSS(vss),.A1(din_cst),.A2(dout_buf1),.ZN(dout)) ; 
+BUF_X4 buffer1 (.VDD(vdd_dut),.VSS(vss),.A(din_real),.Z(dout_buf1));
+BUF_X4 buffer2 (.VDD(vdd_dut),.VSS(vss),.A(din_real),.Z(dout_buf2));
 // Le génrateur de transitions réalistes
 cmos_transition cmos_tr(.din(din),.dout(din_real),.tt_val(tt_val)) ;
 
@@ -74,7 +73,16 @@ always
  @(cross(V(din_real)-alim_voltage*input_threshold_pct, +1,1e-15,1e-4 ))
     tmp_start_time = $abstime ;
 always
- @(cross(V(capa_entree)-alim_voltage*output_threshold_pct, -1,1e-15,1e-4 ))
+ @(cross(V(dout_buf1)-alim_voltage*output_threshold_pct, +1,1e-15,1e-4 ))
+    tmp_stop_time_circuit = $abstime   ;
+always
+ @(cross(V(capa_test)-alim_voltage*output_threshold_pct, +1,1e-15,1e-4 ))
+    tmp_stop_time_test = $abstime   ;
+always
+ @(cross(V(din_real)-alim_voltage*input_threshold_pct, -1,1e-15,1e-4 ))
+    tmp_start_time = $abstime ;
+always
+ @(cross(V(dout_buf1)-alim_voltage*output_threshold_pct, -1,1e-15,1e-4 ))
     tmp_stop_time_circuit = $abstime   ;
 always
  @(cross(V(capa_test)-alim_voltage*output_threshold_pct, -1,1e-15,1e-4 ))

@@ -1,0 +1,74 @@
+// La maquette de test écrite en language Verilog-ams
+// On prend 1fs dans le timescale pour que les mesures de temps dans le domaine "numérique" soient précises.
+// (à confirmer)
+`timescale 1ns/1fs
+
+`include "constants.vams"
+`include "disciplines.vams"
+`include "cmos_transition.vams"
+
+module conso_dyn_bd( 
+                        input wreal din1,
+			input wreal din2,
+			input wreal tt_val,
+			input wreal capa_charge_val,
+                        output wreal internal_energy,
+                        input wire fin_test
+                         );
+
+// Paramètre de tension récupéré du fichier de commande
+parameter real  alim_voltage = $param("valim") ; // volts
+
+// Les paramètres de caractérisation (pourcentages de la pleine excursion)
+// Noms et valeurs issus du fichier au format "Liberty"
+parameter real  slew_lower_threshold_pct 	= 0.3 ; // fraction de la pleine excursion
+parameter real  slew_upper_threshold_pct 	= 0.7 ; // fraction de la pleine excursion
+parameter real  input_threshold_pct      	= 0.5 ; // fraction de la pleine excursion
+parameter real  output_threshold_pct      	= 0.5 ; // fraction de la pleine excursion
+
+// Les signaux logiques et électriques
+electrical din_real1     ; // Signal electrique dérivé de din
+electrical din_real2     ; // Signal electrique dérivé de din
+electrical dout         ; // Signal electrique de sortie de l'additionneur
+real energy;
+// Les références d'alimentation
+electrical vss          ; // La référence de masse
+ground vss              ; // C'est une référence globale associée au noeud "0" du simulateur électrique
+electrical vdd_dut      ; // L'alimentation du dispositif à tester
+
+branch (vdd_dut,vss) alimentation_dut     ; //  L'alimentation du dispositif à mesurer
+branch (dout,vss) capa_charge         ; //  La capacité de charge en sortie
+
+// Le circuit à tester
+AND2_X4 and2 (.VDD(vdd_dut),.VSS(vss),.A1(din_real1),.A2(din_real2),.ZN(dout)) ;
+// Le génrateur de transitions réalistes
+cmos_transition cmos_tr1(.din(din1),.dout(din_real),.tt_val(tt_val)) ;
+cmos_transition cmos_tr2(.din(din2),.dout(din_real),.tt_val(tt_val)) ;
+
+analog
+begin
+ // La source d'alimentation de la logique en test
+ V(alimentation_dut) <+ alim_voltage ;
+ // La capacité de charge en sortie, dont la valeur est réglée dans le testbench SystemVerilog
+ I(capa_charge) <+ ddt(V(capa_charge))*capa_charge_val;
+ energy = idt(V(alimentation_dut)*I(alimentation_dut));
+ @(posedge fin_test)
+   $finish ;
+end
+
+
+///////////////////////////////////////////////////////////////
+// Le monde numérique
+///////////////////////////////////////////////////////////////
+
+real intern_energy	 ; 
+always
+ @(cross(V(capa_charge)-alim_voltage*input_threshold_pct, +1,1e-15,1e-4 ))
+    intern_energy = intern_energy-capa_charge_val*V(capa_charge)*V(capa_charge)/2;
+always
+ @(cross(V(capa_charge)-alim_voltage*input_threshold_pct, -1,1e-15,1e-4 ))
+    intern_energy = intern_energy-capa_charge_val*V(capa_charge)*V(capa_charge)/2;
+
+// transmission des valeurs calculées vers le monde numérique
+assign internal_energy = intern_energy;
+endmodule

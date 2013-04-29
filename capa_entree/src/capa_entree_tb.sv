@@ -31,17 +31,14 @@ input_capa_bd bd0  (
                           .fin_test(fin_test)
                           ) ;
 
-// La liste des points de test à effectuer est déterminée par 2 tables de paramètres directement
-// extraite du fichier Liberty de la bibliothèque NANGATE
-localparam NBCAPA = 10 ;
-real capa_values[0:NBCAPA-1]; // fF
 // Table pour récupérer le temps de propagation mesuré
+localparam NBCAPA = 100 ;
+localparam real initial_capa = 4;
+localparam real final_capa = 5;
+real capa_values [0:NBCAPA-1]; // fF
 real tab_prop_time_test_rise [0:NBCAPA-1];
 real tab_prop_time_test_fall [0:NBCAPA-1];
 real tab_prop_time_circuit [0:1];
-localparam initial_capa = 0.1;
-localparam final_capa = 1;
-
 ///////////////////////////////////////////////////////////////
 // Le testbench proprement dit défini dans le monde "logique".
 ///////////////////////////////////////////////////////////////
@@ -51,13 +48,13 @@ initial
 begin:simu
    int capa_index ;
    din = 0 ;
-   din_cst = 0;
+   din_cst = 1;
    capa_charge_val=100*1.0e-15;
    tt_val = 0.01*1.0e-9;
    // Création de la liste des capa_test à tester
    for (capa_index=0;capa_index<NBCAPA;capa_index++)
    begin
-	capa_values[capa_index]=(capa_index+1)*(final_capa-initial_capa)/NBCAPA;
+	capa_values[capa_index]=initial_capa + (capa_index)*(final_capa-initial_capa)/NBCAPA;
    end
    // Création du fichier de résultats
    File = $fopen("AND2_X4_capa_entree.dat") ;
@@ -71,14 +68,14 @@ begin:simu
        // On récupère la mesure du temps de propagation (toujours en attendant que d'être dans une zone stable)
        #(digital_tick) ; tab_prop_time_circuit[1] = circuit_propagation_time/1.0e-9 ;
    // Ecriture des résultats
-   $fwrite(File,"prop_time_entree_circuit {\n") ;
+   $fwrite(File,"prop_time_entree_circuit {\nrise : ") ;
    for(capa_index=0;capa_index<2;capa_index++)
    begin
        $fwrite(File,"%10.8f",tab_prop_time_circuit[capa_index]) ;
        if(capa_index < 1)
-          $fwrite(File,",") ;
+          $fwrite(File,"\nfall : ") ;
        else
-          $fwrite(File,"\n\n") ;
+          $fwrite(File,"\n}\n") ;
    end
    // Boucle principale sur la liste des capa
    for(capa_index=0;capa_index<NBCAPA;capa_index++) 
@@ -98,9 +95,7 @@ begin:simu
    // les résultats de mesure. Ici on utilise le format du fichier "Liberty"
    #(digital_tick) ;
    // Ecriture des résultats
-$fwrite(File,"tt_vall {\n") ;
-$fwrite(File,"prop_time_entree_test {\n") ;
-   $fwrite(File,"%10.8f\n\n",tt_val) ;
+   $fwrite(File,"prop_time_entree_test {\n") ;
    $fwrite(File,"    index_capa (\"") ;
    for(capa_index=0;capa_index<NBCAPA;capa_index++)
    begin
@@ -121,7 +116,7 @@ $fwrite(File,"prop_time_entree_test {\n") ;
        else
           $fwrite(File,"\"") ;
    end
-   $fwrite(File,"}\n") ;
+   $fwrite(File,");\n") ;
 
    $fwrite(File,"    fall (\"") ;
 
@@ -133,7 +128,7 @@ $fwrite(File,"prop_time_entree_test {\n") ;
        else
           $fwrite(File,"\"") ;
    end
-   $fwrite(File,"}\n") ;
+   $fwrite(File,")}\n") ;
    $fclose(File) ;
    fin_test = 1 ;
 end

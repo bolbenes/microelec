@@ -1,0 +1,33 @@
+Résultats de la simulation :
+
+	Capacité de l'entrée A1 :
+	rise : 3,54 fF erreur ~ 11%
+	fall : 2,66 fF erreur ~ 12%
+
+	Capacité de l'entrée A2 :
+	rise : 4,21 fF erreur ~ 19%
+	fall : 3,90 fF erreur ~ 21%
+
+Les écarts entre les valeurs théoriques et les valeurs simulées sont assez grands mais on a les mêmes ordres de grandeur.
+
+
+Valeurs dans le fichier Nangate :
+
+	pin (A1) {
+
+		direction		: input;
+		related_power_pin		: "VDD";
+		related_ground_pin		: "VSS";
+		capacitance		: 3.195354;
+		fall_capacitance	: 3.034703;
+		rise_capacitance	: 3.195354;
+	}
+
+	pin (A2) {
+
+		direction		: input;
+		related_power_pin		: "VDD";
+		related_ground_pin		: "VSS";
+		capacitance		: 3.536501;
+		fall_capacitance	: 3.223739;
+		rise_capacitance	: 3.536501;
