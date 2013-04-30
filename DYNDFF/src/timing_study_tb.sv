@@ -41,7 +41,7 @@ localparam NBSLOPES_D   = 3 ;
 localparam real clk_tran_values[0:NBSLOPES_CK-1] = '{0.00117378,0.0449324,0.198535} ; // ns
 localparam real d_tran_values[0:NBSLOPES_D-1] = '{0.00117378,0.0449324,0.198535};// ns 
 // initial setup time ns
-localparam real setup_step = 10;
+localparam real setup_step = 0.1;
 // Table pour récupérer le temps de propagation mesuré
 real tab_setup_time [0:1] [0:NBSLOPES_CK-1][0:NBSLOPES_D-1] ;
 
@@ -62,7 +62,7 @@ begin:simu
    // On teste A1 : donc on met A2 à 1 pour avoir une monté en sortie   
    din = 0 ;
    clk = 1 ;
-   capa_charge_val = load_capacitance;
+   capa_charge_val = load_capacitance*1.0e-15;
     // Result for A1
    // Boucle principale sur la liste des pentes d'entrée
    for(clk_tran_index=0;clk_tran_index<NBSLOPES_CK;clk_tran_index++) 
@@ -79,10 +79,10 @@ begin:simu
            begin
             #(digital_tick-i*setup_step) ; din = 1 ;
             #(i*setup_step); // resync on clk
-            #(digital_tick);
+            #(digital_tick/2);din = 0 ;
             // set dout to 0
-            #(digital_tick) ; din = 0 ;
-            #(digital_tick) ;
+            #(digital_tick/2) ;
+            #(digital_tick);
           end
      end
    end

@@ -50,7 +50,7 @@ branch (vdd_dut,vss) alimentation_dut     ; //  L'alimentation du dispositif à 
 branch (dout,vss) capa_charge         ; //  La capacité de charge en sortie
 
 // Le circuit à tester
-DYNDFF_X1 dyn_dff (.VDD(vdd_dut),.VSS(vss),.D(din_real),.CK(clk),.Q(dout)) ; 
+DYNDFF_X1 dyn_dff (.VDD(vdd_dut),.VSS(vss),.D(din_real),.CK(clk_real),.Q(dout)) ; 
 
 
 // Le génrateur de transitions réalistes
@@ -69,7 +69,13 @@ begin
    $finish ;
 end
 
-assign q = V(capa_charge);
+real qout;
+// detect falling edge of clk
+always
+ @(cross(V(clk_real)-alim_voltage*output_threshold_pct, +1,1e-15,1e-4 ))
+    qout = V(capa_charge) ;
+
+assign q = qout;
 
 ///////////////////////////////////////////////////////////////
 // Le monde numérique
