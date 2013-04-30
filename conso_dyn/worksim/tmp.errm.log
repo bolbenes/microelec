@@ -1,4 +1,4 @@
-START report: Mon Apr 29 12:15:21 2013 
+START report: Tue Apr 30 17:33:51 2013 
 ** Note: (vasim - 3800) Running Questa ADMS 12.2 Thu Feb  7 10:59:42 GMT 2013
 +   on a507-4c Linux x86_64(3.2.0-4-amd64) #1 SMP Debian 3.2.41-2
 Loading "/comelec/softs/opt/mentor/ams/ams_12_2/libs/std.standard"
@@ -15,3 +15,29 @@ Load done
 +   OBJECT "BD0.AND2.C_X_PM_AND2_X4$VSS_C1": Self-connected object not created.
 ** Warning: (eldo - 252)  In file "./tmp.cmd" line 516:
 +   OBJECT "BD0.AND2.C_X_PM_AND2_X4$VSS_C7": Self-connected object not created.
+** Warning: (eldo - 526)  MODEL "NMOS_VTG":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "NMOS_VTG":   ACDE = 1 given in the model card results in effective acde = 0.276941 which is too small.
+
+** Warning: (eldo - 526)  MODEL "PMOS_VTG":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "PMOS_VTG":   ACDE = 1 given in the model card results in effective acde = 0.300892 which is too small.
+
+** Warning: (eldo - 526)  MODEL "NMOS_VTL":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "NMOS_VTL":   ACDE = 1 given in the model card results in effective acde = 0.276941 which is too small.
+
+** Warning: (eldo - 526)  MODEL "PMOS_VTL":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "PMOS_VTL":   ACDE = 1 given in the model card results in effective acde = 0.300892 which is too small.
+
+** Warning: (eldo - 526)  MODEL "NMOS_VTH":   ACDE = 1 given in the model card results in effective acde = 0.280299 which is too small.
+
+** Warning: (eldo - 526)  MODEL "PMOS_VTH":   ACDE = 1 given in the model card results in effective acde = 0.300892 which is too small.
+
+** Warning: (eldo - 526)  MODEL "NMOS_THKOX":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "NMOS_THKOX":   ACDE = 1 given in the model card results in effective acde = 0.313142 which is too small.
+
+** Warning: (eldo - 526)  MODEL "PMOS_THKOX":  Parameter XL used for version >= 4.2. Parameter ignored! 
+** Warning: (eldo - 526)  MODEL "PMOS_THKOX":   ACDE = 1 given in the model card results in effective acde = 0.321157 which is too small.
+
+** Warning: (eldo - 415)  COMMAND .TRAN: Parameter TPRINT is set to: 1.000000e-06.
++   This is because more than 2000000 points would be created.
+** Note: (vasim - 3201) In BD0(conso_dyn_bd), at line 58, in the file /stud/users/promo14/hilaire/CBN/conso_dyn/src/conso_dyn_bd.vams
++   $finish(0)

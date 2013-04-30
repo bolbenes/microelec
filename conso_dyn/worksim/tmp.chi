@@ -1,11 +1,11 @@
   Run on a507-4c (Linux 3.2.0-4-amd64)
 
-/comelec/softs/opt/mentor/ams/ams_12_2/aol/bin/vams_ms_64 -i /stud/users/promo14/hilaire/CBN/conso_dyn/worksim/tmp.cmd -noconf -nogwl -cou46 -gwl wdl -nocou -wdb_folder -wdb_incremental -jwdb_design -hdla /stud/users/promo14/hilaire/CBN/conso_dyn/worksim/work conso_dyn_tb -hdlav3opt -jwdbport 53251 -jwdbhost a507-4c -folder -mainpane -mach -ezwave -L nangatelib -jwdb_checkpoint 1 -msl transcript_ms 
+/comelec/softs/opt/mentor/ams/ams_12_2/aol/bin/vams_ms_64 -i /stud/users/promo14/hilaire/CBN/conso_dyn/worksim/tmp.cmd -noconf -nogwl -cou46 -gwl wdl -nocou -wdb_folder -wdb_incremental -jwdb_design -hdla /stud/users/promo14/hilaire/CBN/conso_dyn/worksim/work conso_dyn_tb -hdlav3opt -jwdbport 52291 -jwdbhost a507-4c -folder -c -mach -L nangatelib -jwdb_checkpoint 1 -msl transcript_ms 
 
 
 ***** PRE-PROCESSING ...
 
-1*******29-Apr-13 *******  ELDO 12.2 (64 bits)  (v7.8_1.1)  *******12:15:21******
+1*******30-Apr-13 *******  ELDO 12.2 (64 bits)  (v7.8_1.1)  *******17:33:51******
 
 0* vasim.cmd
 
@@ -708,10 +708,10 @@ INFORMATION ABOUT COMPILATION
 
 Memory space allocated (MB):    490
 229 elements
-133 nodes 
+132 nodes 
 0 input signals
 Detail about objects and nodes found in the design, and simulated by Eldo:
-Number of nodes                     133
+Number of nodes                     132
 Number of intrinsic nodes           0
 Number of input signals             0
 Number of resistors                 131
@@ -729,32 +729,538 @@ Number of SWITCHES                  0
 Number of transmission lines        0
 ADMS devices                        4
 Total number of elements simulated  229
-Warning 108:   NODE "BD0.AND2.N_A2_M0_G": This node is a floating gate.
-+   List of MOS devices connected to that node follows:
-+   --> BD0.AND2.M_M8
 
-Warning 108:   NODE "BD0.AND2.N_A1_M1_G": This node is a floating gate.
-+   List of MOS devices connected to that node follows:
-+   --> BD0.AND2.M_M9
+EldoHDL VERSION : ELDO 12.2 (64 bits) Thu Feb  7 09:07:01 GMT 2013
 
-Warning 108:   NODE "BD0.AND2.N_A1_M2_G": This node is a floating gate.
-+   List of MOS devices connected to that node follows:
-+   --> BD0.AND2.M_M10
+*** DATE: 30-Apr-2013 17:33:54
 
-Warning  29:   Such messages will not be displayed in future. Set .option MSGNODE = 0 to receive all such warnings.
+*** TITLE: * vasim.cmd
 
-Warning 118:   NODE "BD0.AND2.X_PM_AND2_X4$A2_28": No DC path to ground.
-Warning 118:   NODE "BD0.AND2.X_PM_AND2_X4$A2_27": No DC path to ground.
-Warning 118:   NODE "BD0.AND2.X_PM_AND2_X4$A2_25": No DC path to ground.
-Warning 118:   NODE "BD0.AND2.X_PM_AND2_X4$A2_24": No DC path to ground.
-Warning 118:   NODE "BD0.AND2.X_PM_AND2_X4$A2_20": No DC path to ground.
-Warning 118:   NODE "BD0.AND2.X_PM_AND2_X4$A2_18": No DC path to ground.
-Warning 118:   NODE "BD0.AND2.X_PM_AND2_X4$A1_25": No DC path to ground.
-Warning 118:   NODE "BD0.DIN_REAL1": No DC path to ground.
-Warning 118:   NODE "BD0.AND2.X_PM_AND2_X4$A1_19": No DC path to ground.
-Warning 118:   NODE "BD0.AND2.X_PM_AND2_X4$A1_9": No DC path to ground.
-ERROR   27:   Inductor/'voltage source' loop found
-+   Voltage loop  made of 0 voltage sources only can be accepted using .OPTION LOOPV0
-+   To downgrade this error to a warning  use .OPTION VOLTAGE_LOOP_SEVERITY = WARNING
-->BD0.CMOS_TR2:  voltage source between BD0.DIN_REAL and 0
-->BD0.CMOS_TR1:  voltage source between BD0.DIN_REAL and 0
+TEMPERATURE : 25.000000 degrees C
+
+Warning 526: MODEL "NMOS_VTG":  Parameter XL used for version >= 4.2. Parameter ignored! 
+Warning 526: MODEL "NMOS_VTG":   ACDE = 1 given in the model card results in effective acde = 0.276941 which is too small.
+
+Warning 526: MODEL "PMOS_VTG":  Parameter XL used for version >= 4.2. Parameter ignored! 
+Warning 526: MODEL "PMOS_VTG":   ACDE = 1 given in the model card results in effective acde = 0.300892 which is too small.
+
+Warning 526: MODEL "NMOS_VTL":  Parameter XL used for version >= 4.2. Parameter ignored! 
+Warning 526: MODEL "NMOS_VTL":   ACDE = 1 given in the model card results in effective acde = 0.276941 which is too small.
+
+Warning 526: MODEL "PMOS_VTL":  Parameter XL used for version >= 4.2. Parameter ignored! 
+Warning 526: MODEL "PMOS_VTL":   ACDE = 1 given in the model card results in effective acde = 0.300892 which is too small.
+
+Warning 526: MODEL "NMOS_VTH":   ACDE = 1 given in the model card results in effective acde = 0.280299 which is too small.
+
+Warning 526: MODEL "PMOS_VTH":   ACDE = 1 given in the model card results in effective acde = 0.300892 which is too small.
+
+Warning 526: MODEL "NMOS_THKOX":  Parameter XL used for version >= 4.2. Parameter ignored! 
+Warning 526: MODEL "NMOS_THKOX":   ACDE = 1 given in the model card results in effective acde = 0.313142 which is too small.
+
+Warning 526: MODEL "PMOS_THKOX":  Parameter XL used for version >= 4.2. Parameter ignored! 
+Warning 526: MODEL "PMOS_THKOX":   ACDE = 1 given in the model card results in effective acde = 0.321157 which is too small.
+
+1***************30-Apr-2013 ***********************  ELDO 12.2 (64 bits)  (v7.8_1.1)  ***********************17:33:54*****************
+
+0* vasim.cmd
+0****                 MODELS PARAMETERS                                    TEMPERATURE =   25.000 DEG C
+
+0*************************************************************************************************************************
+
+
+
+ DEVICE          MOS
+ MODEL: NMOS_VTL
+ TYPE            N
+ LEVEL 60 : GC_DROP BSIM4.0.0 
+ LIBRARY : /comelec/softs/opt/opus_kits/FreePDK45/ncsu_basekit/models/hspice/tran_models/models_nom/NMOS_VTL.inc
+
+  names    values    units     names    values    units     names    values    units   
+  -----    ------    -----     -----    ------    -----     -----    ------    -----   
+
+/************  Model_parameters  ************/
+VERSION = 4.0000E+00 -       WARNMOD = 1          -       TNOM    = 2.7000E+01 degC   
+CDSC    = 0.0        F/m2    CDSCB   = 0.0        F/Vm^2  CDSCD   = 0.0        F/Vm^2 
+CIT     = 0.0        F/m^2   NFACTOR = 2.1000E+00 -       XJ      = 1.9800E-08 m      
+VSAT    = 1.4800E+05 m/s     AT      = 3.3000E+04 m/s     A0      = 1.0000E+00 -      
+AGS     = 0.0        1/V     A1      = 0.0        1/V     A2      = 1.0000E+00 -      
+KETA    = 4.0000E-02 1/V     NSUB    = 6.0000E+16 cm-3    NDEP    = 3.4000E+18 cm-3   
+NSD     = 2.0000E+20 cm-3    PHIN    = 0.0        V       NGATE   = 3.0000E+20 cm-3   
+GAMMA1  = 0.0        V^1/2   GAMMA2  = 0.0        V^1/2   VBX     = 0.0        V      
+VBM     =-3.0000E+00 V       XT      = 1.5500E-07 m       K1      = 4.0000E-01 V^1/2  
+KT1     =-1.1000E-01 V       KT1L    = 0.0        Vm      KT2     = 2.2000E-02 -      
+K2      = 0.0        -       K3      = 0.0        -       K3B     = 0.0        1/V    
+W0      = 2.5000E-06 m       DVTP0   = 1.0000E-10 m       DVTP1   = 1.0000E-01 1/V    
+LPE0    = 0.0        m       LPEB    = 0.0        m       DVT0    = 1.0000E+00 -      
+DVT1    = 2.0000E+00 -       DVT2    = 0.0        1/V     DVT0W   = 0.0        1/m    
+DVT1W   = 0.0        1/m     DVT2W   = 0.0        1/V     DROUT   = 5.0000E-01 -      
+DSUB    = 1.0000E-01 -       VTH0    = 3.2200E-01 V       UA      = 6.0000E-10 m/V    
+UA1     = 4.3100E-09 m/V     UB      = 1.2000E-18 (m/V)^2 UB1     = 7.6100E-18 (m/V)^2
+UC      = 0.0        m/V^2   UC1     =-5.6000E-11 m/V^2   U0      = 4.5000E-02 unit1  
+EU      = 1.6700E+00 -       UTE     =-1.5000E+00 -       VOFF    =-1.3000E-01 V      
+MINV    = 5.0000E-02 -       RDSW    = 1.5500E+02 unit2   RSW     = 8.0000E+01 unit2  
+RDW     = 8.0000E+01 unit2   PRWG    = 0.0        1/V     PRWB    = 0.0        V^-0.5 
+PRT     = 0.0        ohm(m)  ETA0    = 6.0000E-03 -       ETAB    = 0.0        1/V    
+PCLM    = 2.0000E-02 -       PDIBL1  = 1.0000E-03 -       PDIBL2  = 1.0000E-03 -      
+PDIBLB  =-5.0000E-03 1/V     FPROUT  = 2.0000E-01 V/m^0.5 PDITS   = 8.0000E-02 1/V    
+PDITSD  = 2.3000E-01 1/V     PSCBE1  = 8.1400E+08 V/m     PSCBE2  = 1.0000E-07 m/V    
+PVAG    = 1.0000E-20 -       DELTA   = 1.0000E-02 V       WR      = 1.0000E+00 -      
+DWG     = 0.0        m/V     DWB     = 0.0        m/V^0.5 B0      = 0.0        m      
+B1      = 0.0        m       ALPHA0  = 7.4000E-02 Am/V    ALPHA1  = 5.0000E-03 A/V    
+BETA0   = 3.0000E+01 V       VFB     =-5.5000E-01 V       AGIDL   = 2.0000E-04 mho    
+BGIDL   = 2.1000E+09 V/m     CGIDL   = 2.0000E-04 V^3     EGIDL   = 8.0000E-01 V      
+AIGC    = 2.0000E-02 unit3   BIGC    = 2.7000E-03 unit4   CIGC    = 2.0000E-03 1/V    
+AIGSD   = 2.0000E-02 unit3   BIGSD   = 2.7000E-03 unit4   CIGSD   = 2.0000E-03 -      
+AIGBACC = 1.2000E-02 unit3   BIGBACC = 2.8000E-03 unit4   CIGBACC = 2.0000E-03 1/V    
+AIGBINV = 1.4000E-02 unit3   BIGBINV = 4.0000E-03 unit4   CIGBINV = 4.0000E-03 1/V    
+NIGC    = 1.0000E+00 -       NIGBINV = 3.0000E+00 -       NIGBACC = 1.0000E+00 -      
+NTOX    = 1.0000E+00 -       EIGBINV = 1.1000E+00 V       PIGCD   = 1.0000E+00 -      
+POXEDGE = 1.0000E+00 -       XRCRG1  = 1.2000E+01 -       XRCRG2  = 5.0000E+00 -      
+CGSL    = 2.6530E-10 F/m     CGDL    = 2.6530E-10 F/m     CKAPPAS = 3.0000E-02 V      
+CKAPPAD = 3.0000E-02 V       CF      = 1.2889E-10 F/m     CLC     = 1.0000E-07 m      
+CLE     = 6.0000E-01 -       VFBCV   =-1.0000E+00 V       NOFF    = 9.0000E-01 -      
+VOFFCV  = 2.0000E-02 V       ACDE    = 1.0000E+00 m/V     MOIN    = 1.5000E+01 -      
+FNMOD   = 0          -       IGCMOD  = 1          -       IGBMOD  = 1          -      
+ACNQSMOD= 0          -       FNOIMOD = 1          -       RDSMOD  = 0          -      
+DIOMOD  = 1          -       PERMOD  = 1          -       GEOMOD  = 1          -      
+RGEOMOD = 0          -       RGATEMOD= 1          -       RBODYMOD= 1          -      
+CAPMOD  = 2          -       TRNQSMOD= 0          -       MOBMOD  = 0          -      
+TNOIMOD = 0          -       TOXE    = 1.1400E-09 m       BINUNIT = 1          -      
+PARAMCHK= 1          -       IJTHDFWD= 1.0000E-02 A       TOXM    = 1.1400E-09 m      
+TCJ     = 1.0000E-03 1/K     TCJSW   = 1.0000E-03 1/K     TCJSWG  = 1.0000E-03 1/K    
+TPB     = 5.0000E-03 V/K     TPBSW   = 5.0000E-03 V/K     TPBSWG  = 5.0000E-03 V/K    
+GBMIN   = 1.0000E-10 mho     RBDB    = 1.5000E+01 ohm     RBSB    = 1.5000E+01 ohm    
+RBPB    = 5.0000E+00 ohm     RBPS    = 1.5000E+01 ohm     RBPD    = 1.5000E+01 ohm    
+DMCG    = 0.0        m       DMCI    = 0.0        m       DMDG    = 0.0        m      
+XGW     = 0.0        m       XGL     = 0.0        m       RSHG    = 4.0000E-01 ohm/sq 
+NGCON   = 1.0000E+00 -       IJTHSFWD= 1.0000E-02 A       XJBVD   = 1.0000E+00 -      
+XJBVS   = 1.0000E+00 -       BVD     = 1.0000E+01 V       BVS     = 1.0000E+01 V      
+TOXP    = 1.0000E-09 m       DTOX    = 1.4000E-10 m       IJTHSREV= 1.0000E-03 A      
+IJTHDREV= 1.0000E-03 A       VOFFL   = 0.0        m       PDITSL  = 2.3000E+06 1/m    
+TNOIA   = 1.5000E+00 -       TNOIB   = 3.5000E+00 -       NTNOI   = 1.0000E+00 -      
+RDSWMIN = 0.0        unit2   RDWMIN  = 0.0        unit2   RSWMIN  = 0.0        unit2  
+DMCGT   = 0.0        m       TOXREF  = 1.1400E-09 m       EPSROX  = 3.9000E+00 -      
+JSWGS   = 1.0000E-10 A/m     JSWGD   = 1.0000E-10 A/m     CGSO    = 1.1000E-10 F/m    
+CGDO    = 1.1000E-10 F/m     CGBO    = 2.5600E-11 F/m     XPART   = 0.0        -      
+RSH     = 5.0000E+00 ohm/sq  JSS     = 1.0000E-04 A/m^2   PBS     = 1.0000E+00 V      
+MJS     = 5.0000E-01 -       PBSWS   = 1.0000E+00 V       MJSWS   = 3.3000E-01 -      
+CJS     = 5.0000E-04 F/m^2   CJSWS   = 5.0000E-10 F/m     NOIA    = 6.2500E+41 unit5  
+NOIB    = 3.1250E+26 1/V     NOIC    = 8.7500E+09 1/V.m^2 LINT    = 3.7500E-09 m      
+LL      = 0.0        m^LLN   LLN     = 1.0000E+00 -       LW      = 0.0        m^LWN  
+LWN     = 1.0000E+00 -       LWL     = 0.0        unit6   WINT    = 5.0000E-09 m      
+WL      = 0.0        m^WLN   WLN     = 1.0000E+00 -       WW      = 0.0        m^WWN  
+WWN     = 1.0000E+00 -       WWL     = 0.0        unit7   DWC     = 5.0000E-09 m      
+DLC     = 3.7500E-09 m       EM      = 4.1000E+07 V/m     EF      = 1.0000E+00 -      
+AF      = 1.0000E+00 -       KF      = 0.0        -       NJS     = 1.0000E+00 -      
+XTIS    = 3.0000E+00 -       PBSWGS  = 1.0000E+00 V       MJSWGS  = 3.3000E-01 -      
+CJSWGS  = 3.0000E-10 F/m     JSWS    = 1.0000E-11 A/m     LLC     = 0.0        m^LLN  
+LWC     = 0.0        m^LWN   LWLC    = 0.0        unit6   WLC     = 0.0        m^WLN  
+WWC     = 0.0        m^WWN   WWLC    = 0.0        unit7   DWJ     = 0.0        m      
+JSD     = 1.0000E-04 A/m^2   PBD     = 1.0000E+00 V       MJD     = 5.0000E-01 -      
+PBSWD   = 1.0000E+00 V       MJSWD   = 3.3000E-01 -       CJD     = 5.0000E-04 F/m^2  
+CJSWD   = 5.0000E-10 F/m     NJD     = 1.0000E+00 -       XTID    = 3.0000E+00 -      
+PBSWGD  = 1.0000E+00 V       MJSWGD  = 3.3000E-01 -       CJSWGD  = 5.0000E-10 F/m    
+JSWD    = 1.0000E-11 A/m     DLCIG   = 3.7500E-09 m       OPTACM  = 1          -      
+GCDROP  = 0          -       NQS_MODFLAG= 1          -       LMLT    = 1.0000E+00 -      
+WMLT    = 1.0000E+00 -       DELVT0  = 0.0        -       
+
+unit1 represents m^2/(Vs)
+unit2 represents ohm(um)^WR
+unit3 represents (1/m)[(Fs^2)/g]^0.5
+unit4 represents [1/(mV)][(Fs^2)/g]^0.5
+unit5 represents 1/V.m^-2
+unit6 represents m^(LWN+LLN)
+unit7 represents m^(WWN+WLN)
+
+ DEVICE          MOS
+ MODEL: PMOS_VTL
+ TYPE            P
+ LEVEL 60 : GC_DROP BSIM4.0.0 
+ LIBRARY : /comelec/softs/opt/opus_kits/FreePDK45/ncsu_basekit/models/hspice/tran_models/models_nom/PMOS_VTL.inc
+
+  names    values    units     names    values    units     names    values    units   
+  -----    ------    -----     -----    ------    -----     -----    ------    -----   
+
+/************  Model_parameters  ************/
+VERSION = 4.0000E+00 -       WARNMOD = 1          -       TNOM    = 2.7000E+01 degC   
+CDSC    = 0.0        F/m2    CDSCB   = 0.0        F/Vm^2  CDSCD   = 0.0        F/Vm^2 
+CIT     = 0.0        F/m^2   NFACTOR = 2.2200E+00 -       XJ      = 1.9800E-08 m      
+VSAT    = 6.9000E+04 m/s     AT      = 3.3000E+04 m/s     A0      = 1.0000E+00 -      
+AGS     = 1.0000E-20 1/V     A1      = 0.0        1/V     A2      = 1.0000E+00 -      
+KETA    =-4.7000E-02 1/V     NSUB    = 6.0000E+16 cm-3    NDEP    = 2.4400E+18 cm-3   
+NSD     = 2.0000E+20 cm-3    PHIN    = 0.0        V       NGATE   = 2.0000E+20 cm-3   
+GAMMA1  = 0.0        V^1/2   GAMMA2  = 0.0        V^1/2   VBX     = 0.0        V      
+VBM     =-3.0000E+00 V       XT      = 1.5500E-07 m       K1      = 4.0000E-01 V^1/2  
+KT1     =-1.1000E-01 V       KT1L    = 0.0        Vm      KT2     = 2.2000E-02 -      
+K2      =-1.0000E-02 -       K3      = 0.0        -       K3B     = 0.0        1/V    
+W0      = 2.5000E-06 m       DVTP0   = 1.0000E-11 m       DVTP1   = 5.0000E-02 1/V    
+LPE0    = 0.0        m       LPEB    = 0.0        m       DVT0    = 1.0000E+00 -      
+DVT1    = 2.0000E+00 -       DVT2    =-3.2000E-02 1/V     DVT0W   = 0.0        1/m    
+DVT1W   = 0.0        1/m     DVT2W   = 0.0        1/V     DROUT   = 5.6000E-01 -      
+DSUB    = 1.0000E-01 -       VTH0    =-3.0210E-01 V       UA      = 2.0000E-09 m/V    
+UA1     = 4.3100E-09 m/V     UB      = 5.0000E-19 (m/V)^2 UB1     = 7.6100E-18 (m/V)^2
+UC      = 0.0        m/V^2   UC1     =-5.6000E-11 m/V^2   U0      = 2.0000E-02 unit1  
+EU      = 1.0000E+00 -       UTE     =-1.5000E+00 -       VOFF    =-1.2600E-01 V      
+MINV    = 5.0000E-02 -       RDSW    = 1.5500E+02 unit2   RSW     = 7.5000E+01 unit2  
+RDW     = 7.5000E+01 unit2   PRWG    = 0.0        1/V     PRWB    = 0.0        V^-0.5 
+PRT     = 0.0        ohm(m)  ETA0    = 5.5000E-03 -       ETAB    = 0.0        1/V    
+PCLM    = 1.2000E-01 -       PDIBL1  = 1.0000E-03 -       PDIBL2  = 1.0000E-03 -      
+PDIBLB  = 3.4000E-08 1/V     FPROUT  = 2.0000E-01 V/m^0.5 PDITS   = 8.0000E-02 1/V    
+PDITSD  = 2.3000E-01 1/V     PSCBE1  = 8.1400E+08 V/m     PSCBE2  = 9.5800E-07 m/V    
+PVAG    = 1.0000E-20 -       DELTA   = 1.0000E-02 V       WR      = 1.0000E+00 -      
+DWG     = 0.0        m/V     DWB     = 0.0        m/V^0.5 B0      = 0.0        m      
+B1      = 0.0        m       ALPHA0  = 7.4000E-02 Am/V    ALPHA1  = 5.0000E-03 A/V    
+BETA0   = 3.0000E+01 V       VFB     = 5.5000E-01 V       AGIDL   = 2.0000E-04 mho    
+BGIDL   = 2.1000E+09 V/m     CGIDL   = 2.0000E-04 V^3     EGIDL   = 8.0000E-01 V      
+AIGC    = 1.0687E-02 unit3   BIGC    = 1.2607E-03 unit4   CIGC    = 8.0000E-04 1/V    
+AIGSD   = 1.0687E-02 unit3   BIGSD   = 1.2607E-03 unit4   CIGSD   = 8.0000E-04 -      
+AIGBACC = 1.2000E-02 unit3   BIGBACC = 2.8000E-03 unit4   CIGBACC = 2.0000E-03 1/V    
+AIGBINV = 1.4000E-02 unit3   BIGBINV = 4.0000E-03 unit4   CIGBINV = 4.0000E-03 1/V    
+NIGC    = 1.0000E+00 -       NIGBINV = 3.0000E+00 -       NIGBACC = 1.0000E+00 -      
+NTOX    = 1.0000E+00 -       EIGBINV = 1.1000E+00 V       PIGCD   = 1.0000E+00 -      
+POXEDGE = 1.0000E+00 -       XRCRG1  = 1.2000E+01 -       XRCRG2  = 5.0000E+00 -      
+CGSL    = 2.6530E-10 F/m     CGDL    = 2.6530E-10 F/m     CKAPPAS = 3.0000E-02 V      
+CKAPPAD = 3.0000E-02 V       CF      = 1.2670E-10 F/m     CLC     = 1.0000E-07 m      
+CLE     = 6.0000E-01 -       VFBCV   =-1.0000E+00 V       NOFF    = 9.0000E-01 -      
+VOFFCV  = 2.0000E-02 V       ACDE    = 1.0000E+00 m/V     MOIN    = 1.5000E+01 -      
+FNMOD   = 0          -       IGCMOD  = 1          -       IGBMOD  = 1          -      
+ACNQSMOD= 0          -       FNOIMOD = 1          -       RDSMOD  = 0          -      
+DIOMOD  = 1          -       PERMOD  = 1          -       GEOMOD  = 1          -      
+RGEOMOD = 0          -       RGATEMOD= 1          -       RBODYMOD= 1          -      
+CAPMOD  = 2          -       TRNQSMOD= 0          -       MOBMOD  = 0          -      
+TNOIMOD = 0          -       TOXE    = 1.2600E-09 m       BINUNIT = 1          -      
+PARAMCHK= 1          -       IJTHDFWD= 1.0000E-02 A       TOXM    = 1.2600E-09 m      
+TCJ     = 1.0000E-03 1/K     TCJSW   = 1.0000E-03 1/K     TCJSWG  = 1.0000E-03 1/K    
+TPB     = 5.0000E-03 V/K     TPBSW   = 5.0000E-03 V/K     TPBSWG  = 5.0000E-03 V/K    
+GBMIN   = 1.0000E-10 mho     RBDB    = 1.5000E+01 ohm     RBSB    = 1.5000E+01 ohm    
+RBPB    = 5.0000E+00 ohm     RBPS    = 1.5000E+01 ohm     RBPD    = 1.5000E+01 ohm    
+DMCG    = 0.0        m       DMCI    = 0.0        m       DMDG    = 0.0        m      
+XGW     = 0.0        m       XGL     = 0.0        m       RSHG    = 4.0000E-01 ohm/sq 
+NGCON   = 1.0000E+00 -       IJTHSFWD= 1.0000E-02 A       XJBVD   = 1.0000E+00 -      
+XJBVS   = 1.0000E+00 -       BVD     = 1.0000E+01 V       BVS     = 1.0000E+01 V      
+TOXP    = 1.0000E-09 m       DTOX    = 2.6000E-10 m       IJTHSREV= 1.0000E-03 A      
+IJTHDREV= 1.0000E-03 A       VOFFL   = 0.0        m       PDITSL  = 2.3000E+06 1/m    
+TNOIA   = 1.5000E+00 -       TNOIB   = 3.5000E+00 -       NTNOI   = 1.0000E+00 -      
+RDSWMIN = 0.0        unit2   RDWMIN  = 0.0        unit2   RSWMIN  = 0.0        unit2  
+DMCGT   = 0.0        m       TOXREF  = 1.3000E-09 m       EPSROX  = 3.9000E+00 -      
+JSWGS   = 1.0000E-10 A/m     JSWGD   = 1.0000E-10 A/m     CGSO    = 1.1000E-10 F/m    
+CGDO    = 1.1000E-10 F/m     CGBO    = 2.5600E-11 F/m     XPART   = 0.0        -      
+RSH     = 5.0000E+00 ohm/sq  JSS     = 1.0000E-04 A/m^2   PBS     = 1.0000E+00 V      
+MJS     = 5.0000E-01 -       PBSWS   = 1.0000E+00 V       MJSWS   = 3.3000E-01 -      
+CJS     = 5.0000E-04 F/m^2   CJSWS   = 5.0000E-10 F/m     NOIA    = 6.1880E+40 unit5  
+NOIB    = 1.5000E+25 1/V     NOIC    = 8.7500E+09 1/V.m^2 LINT    = 3.7500E-09 m      
+LL      = 0.0        m^LLN   LLN     = 1.0000E+00 -       LW      = 0.0        m^LWN  
+LWN     = 1.0000E+00 -       LWL     = 0.0        unit6   WINT    = 5.0000E-09 m      
+WL      = 0.0        m^WLN   WLN     = 1.0000E+00 -       WW      = 0.0        m^WWN  
+WWN     = 1.0000E+00 -       WWL     = 0.0        unit7   DWC     = 5.0000E-09 m      
+DLC     = 3.7500E-09 m       EM      = 4.1000E+07 V/m     EF      = 1.0000E+00 -      
+AF      = 1.0000E+00 -       KF      = 0.0        -       NJS     = 1.0000E+00 -      
+XTIS    = 3.0000E+00 -       PBSWGS  = 1.0000E+00 V       MJSWGS  = 3.3000E-01 -      
+CJSWGS  = 3.0000E-10 F/m     JSWS    = 1.0000E-11 A/m     LLC     = 0.0        m^LLN  
+LWC     = 0.0        m^LWN   LWLC    = 0.0        unit6   WLC     = 0.0        m^WLN  
+WWC     = 0.0        m^WWN   WWLC    = 0.0        unit7   DWJ     = 0.0        m      
+JSD     = 1.0000E-04 A/m^2   PBD     = 1.0000E+00 V       MJD     = 5.0000E-01 -      
+PBSWD   = 1.0000E+00 V       MJSWD   = 3.3000E-01 -       CJD     = 5.0000E-04 F/m^2  
+CJSWD   = 5.0000E-10 F/m     NJD     = 1.0000E+00 -       XTID    = 3.0000E+00 -      
+PBSWGD  = 1.0000E+00 V       MJSWGD  = 3.3000E-01 -       CJSWGD  = 5.0000E-10 F/m    
+JSWD    = 1.0000E-11 A/m     DLCIG   = 3.7500E-09 m       OPTACM  = 1          -      
+GCDROP  = 0          -       NQS_MODFLAG= 1          -       LMLT    = 1.0000E+00 -      
+WMLT    = 1.0000E+00 -       DELVT0  = 0.0        -       
+
+unit1 represents m^2/(Vs)
+unit2 represents ohm(um)^WR
+unit3 represents (1/m)[(Fs^2)/g]^0.5
+unit4 represents [1/(mV)][(Fs^2)/g]^0.5
+unit5 represents 1/V.m^-2
+unit6 represents m^(LWN+LLN)
+unit7 represents m^(WWN+WLN)
+
+
+Warning 415: COMMAND .TRAN: Parameter TPRINT is set to: 1.000000e-06.
++   This is because more than 2000000 points would be created.
+
+
+
+1***************30-Apr-2013 ***********************  ELDO 12.2 (64 bits)  (v7.8_1.1)  ***********************17:33:54*****************
+
+0* vasim.cmd
+0****                 OPTION SUMMARY                                        TEMPERATURE =   25.000 DEG C
+
+0*************************************************************************************************************************
+
+
+
+
+
+*** DC Control Options : 
+
+GMIN           = 1.00e-12 NMAXSIZE       = 300000   ITL1           = 100      
+GRAMP          = 0        NETSIZE        = 100      VMINDC         = UNDEF    
+VMAXDC         = UNDEF    
+
+*** Initial Accuracy Control Options (May be adjusted during simulation): 
+
+ITOL           = 1.00e-06 EPS            = 1.00e-07 VNTOL          = 1.00e-07 
+RELTOL         = 5.00e-05 RELERR         = 5.00e-02 PIVREL         = 1.00e-03 
+PIVTOL         = 1.00e-16 ABSTOL         = 1.00e-13 FLXTOL         = 1.00e-11 
+MAXORD         = 2.00e+00 
+
+*** Time-step Control Options : 
+
+ZOOMTIME       = 1.00e+00 STEP           = 0.00e+00 STARTSMP       = 0.00e+00 
+FREQSMP        = 0.00e+00 COURESOL       = 0.00e+00 TRTOL          = 7.00e+00 
+HMIN           = 1.00e-15 ITL3           = 3        ITL4           = 13       
+FT             = 1.25e-01 DCLOG          = 1.00e+00 LVLTIM         = 2        
+LVLCNV         = 2        DVDT           = -1       RELVAR         = 1.50e-01 
+ABSVAR         = 2.00e-01 SAMPLE         = 0.00e+00 HMAX           = UNDEF    
+
+
+*** MosFet default Options : 
+
+SCALE          = 1.00e+00 SCALM          = 1.00e+00 SCALEBSIM      = 1.00e+00 
+DEFAD          = UNDEF    DEFAS          = UNDEF    DEFPD          = UNDEF    
+DEFPS          = UNDEF    DEFW           = 1.00e-04 DEFL           = 1.00e-04 
+DEFNRD         = UNDEF    DEFNRS         = UNDEF    XA             = 6.00e-06 
+LIMRMOS        = UNDEF    SHRINK         = 1.00e+00 
+
+*** General Information Options : 
+
+CPTIME         = UNDEF    STAT           = 0        TIMEDIV        = 0        
+SIMUDIV        = 0        SAVETIME       = 0        MAXTRAN        = 1000     
+MAXNODES       = 10000    MAXV           = 1.00e+13 LIMPROBE       = 10000    
+FLICKER_NOISE  = 0        THERMAL_NOISE  = 0        TNOM           = 2.50e+01 
+TMAX           = UNDEF    
+SPICDC         = 0        SPIOUT         = 0        NEWTON         = 1        
+OSR            = 0        TRAP           = 1        GEAR           = 0        
+BE             = 0        PROBEOP        = 0        NOLAT          = 0        
+NWLAT          = 0        ANALOG         = 0        BBDEBUG        = 0        
+NOSIZECHK      = 0        QTRUNC         = 0        UNBOUND        = 0        
+LCAPOP         = 0        NOAEX          = 0        AEX            = 0        
+AEX            = 0        STVER          = 0        MOTOROLA       = 0        
+AMS            = 0        ASPEC          = 0        INPUT          = 0        
+NOINIT         = 0        PSF            = 0        NOBIN          = 0        
+NOCOU          = 1        WL             = 0        NODE           = 0        
+LIST           = 0        SPI3BIN        = 0        SPI3ASC        = 0        
+NOMOD          = 0        NOBIN          = 0        NOCOU          = 1        
+RMOS           = 0        NWRMOS         = 1        NONWRMOS       = 0        
+USEDEFAP       = 0        NOASCII        = 0        ASCII          = 1        
+MIXED          = 0        SWITCH         = 0        USERSWITCH     = 0        
+TIMING         = 0        MODWL          = 1        ULOGIC         = 0        
+
+
+
+   cpu Time 0s 010ms 
+---> Simplified G RAMPING  : 0.000000%
+---> Simplified G RAMPING  : 10.000000%
+---> Simplified G RAMPING  : 20.000000%
+---> Simplified G RAMPING  : 30.000000%
+---> Simplified G RAMPING  : 40.000000%
+---> Simplified G RAMPING  : 50.000000%
+---> Simplified G RAMPING  : 60.000000%
+---> Simplified G RAMPING  : 70.000000%
+---> Simplified G RAMPING  : 80.000000%
+---> Simplified G RAMPING  : 90.000000%
+---> Simplified G RAMPING  : 100.000000%
+    DC cpu Time 0s 030ms 
+DC:1 iterations FOR DC analysis
+
+
+
+
+1***************30-Apr-2013 ***********************  ELDO 12.2 (64 bits)  (v7.8_1.1)  ***********************17:33:54*****************
+
+0* vasim.cmd
+0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   25.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE    
+ BD0.AND2.NET_0__M0_0__M0_0       3.6031E-05
+ BD0.AND2.NET_0__M0_0__M1       3.6006E-05
+ BD0.AND2.N_4_M0_D       6.9921E-05
+ BD0.AND2.N_4_M12_G       7.1637E-05
+ BD0.AND2.N_4_M13_G       7.2518E-05
+ BD0.AND2.N_4_M14_G       7.3086E-05
+ BD0.AND2.N_4_M15_G       7.3341E-05
+ BD0.AND2.N_4_M2_D       6.9897E-05
+ BD0.AND2.N_4_M4_G       7.2505E-05
+ BD0.AND2.N_4_M5_G       7.3386E-05
+ BD0.AND2.N_4_M6_G       7.3954E-05
+ BD0.AND2.N_4_M7_G       7.4247E-05
+ BD0.AND2.N_4_M9_D       6.9496E-05
+ BD0.AND2.N_A1_M10_G       1.1000E+00
+ BD0.AND2.N_A1_M1_G       1.1000E+00
+ BD0.AND2.N_A1_M2_G       1.1000E+00
+ BD0.AND2.N_A1_M9_G       1.1000E+00
+ BD0.AND2.N_A2_M0_G       1.1000E+00
+ BD0.AND2.N_A2_M11_G       1.1000E+00
+ BD0.AND2.N_A2_M3_G       1.1000E+00
+ BD0.AND2.N_A2_M8_G       1.1000E+00
+ BD0.AND2.N_VDD_M0_S       1.1000E+00
+ BD0.AND2.N_VDD_M1_D       1.1000E+00
+ BD0.AND2.N_VDD_M3_D       1.1000E+00
+ BD0.AND2.N_VDD_M5_D       1.1000E+00
+ BD0.AND2.N_VDD_M7_D       1.1000E+00
+ BD0.AND2.N_VSS_M11_D       1.8490E-08
+ BD0.AND2.N_VSS_M13_D       1.8689E-08
+ BD0.AND2.N_VSS_M15_D       9.3661E-09
+ BD0.AND2.N_VSS_M8_S       7.0043E-08
+ BD0.AND2.N_ZN_M12_D       1.1000E+00
+ BD0.AND2.N_ZN_M14_D       1.1000E+00
+ BD0.AND2.N_ZN_M4_D       1.1000E+00
+ BD0.AND2.N_ZN_M6_D       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$4_10       7.1742E-05
+ BD0.AND2.X_PM_AND2_X4$4_11       7.2504E-05
+ BD0.AND2.X_PM_AND2_X4$4_15       7.2532E-05
+ BD0.AND2.X_PM_AND2_X4$4_19       7.3010E-05
+ BD0.AND2.X_PM_AND2_X4$4_20       7.2563E-05
+ BD0.AND2.X_PM_AND2_X4$4_21       7.3071E-05
+ BD0.AND2.X_PM_AND2_X4$4_25       7.3099E-05
+ BD0.AND2.X_PM_AND2_X4$4_29       7.3324E-05
+ BD0.AND2.X_PM_AND2_X4$4_30       7.3100E-05
+ BD0.AND2.X_PM_AND2_X4$4_31       7.3326E-05
+ BD0.AND2.X_PM_AND2_X4$4_35       7.3393E-05
+ BD0.AND2.X_PM_AND2_X4$4_39       7.2503E-05
+ BD0.AND2.X_PM_AND2_X4$4_40       7.3070E-05
+ BD0.AND2.X_PM_AND2_X4$4_41       7.3325E-05
+ BD0.AND2.X_PM_AND2_X4$4_45       6.9904E-05
+ BD0.AND2.X_PM_AND2_X4$4_49       6.9882E-05
+ BD0.AND2.X_PM_AND2_X4$4_5       7.1651E-05
+ BD0.AND2.X_PM_AND2_X4$4_50       6.9902E-05
+ BD0.AND2.X_PM_AND2_X4$4_51       6.9685E-05
+ BD0.AND2.X_PM_AND2_X4$4_52       6.9520E-05
+ BD0.AND2.X_PM_AND2_X4$4_53       6.9881E-05
+ BD0.AND2.X_PM_AND2_X4$4_57       6.9853E-05
+ BD0.AND2.X_PM_AND2_X4$4_58       6.9876E-05
+ BD0.AND2.X_PM_AND2_X4$4_59       6.9703E-05
+ BD0.AND2.X_PM_AND2_X4$4_60       6.9848E-05
+ BD0.AND2.X_PM_AND2_X4$4_62       6.9813E-05
+ BD0.AND2.X_PM_AND2_X4$4_67       6.9512E-05
+ BD0.AND2.X_PM_AND2_X4$4_69       6.9880E-05
+ BD0.AND2.X_PM_AND2_X4$4_70       7.1350E-05
+ BD0.AND2.X_PM_AND2_X4$4_72       7.1622E-05
+ BD0.AND2.X_PM_AND2_X4$4_9       7.2413E-05
+ BD0.AND2.X_PM_AND2_X4$A1_1       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A1_10       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A1_11       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A1_15       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A1_19       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A1_23       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A1_25       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A1_5       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A1_9       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_17       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_18       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_20       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_24       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_25       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_26       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_27       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_28       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_30       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_31       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_33       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$A2_34       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_12       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_15       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_16       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_21       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_22       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_23       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_27       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_28       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_29       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_33       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_34       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_35       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_39       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_40       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_45       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_54       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_55       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_56       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_57       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VDD_58       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$VSS_11       0.0       
+ BD0.AND2.X_PM_AND2_X4$VSS_12       0.0       
+ BD0.AND2.X_PM_AND2_X4$VSS_13       0.0       
+ BD0.AND2.X_PM_AND2_X4$VSS_20       6.8424E-10
+ BD0.AND2.X_PM_AND2_X4$VSS_21       1.5008E-08
+ BD0.AND2.X_PM_AND2_X4$VSS_28       5.6100E-09
+ BD0.AND2.X_PM_AND2_X4$VSS_29       5.3562E-10
+ BD0.AND2.X_PM_AND2_X4$VSS_30       7.6099E-09
+ BD0.AND2.X_PM_AND2_X4$VSS_34       4.0343E-09
+ BD0.AND2.X_PM_AND2_X4$VSS_35       5.9440E-09
+ BD0.AND2.X_PM_AND2_X4$VSS_48       1.5712E-08
+ BD0.AND2.X_PM_AND2_X4$VSS_50       6.1456E-09
+ BD0.AND2.X_PM_AND2_X4$VSS_51       3.8263E-09
+ BD0.AND2.X_PM_AND2_X4$ZN_15       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$ZN_16       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$ZN_17       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$ZN_21       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$ZN_25       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$ZN_26       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$ZN_5       1.1000E+00
+ BD0.AND2.X_PM_AND2_X4$ZN_9       1.1000E+00
+ BD0.AND2.ZN_NEG       7.1622E-05
+ BD0.DIN_REAL1       1.1000E+00
+ BD0.DIN_REAL2       1.1000E+00
+ BD0.DOUT       1.1000E+00
+ BD0.VDD_DUT       1.1000E+00
+
+
+
+
+   cpu Time 0s 020ms 
+DC convergence has achieved using:
+.OPTION GRAMP=9 
+
+EldoHDL NEWTON: VNTOL=1.000000e-07 RELTOL=5.000000e-05
+
+
+
+
+1***************30-Apr-2013 ***********************  ELDO 12.2 (64 bits)  (v7.8_1.1)  ***********************17:33:54*****************
+
+0* vasim.cmd
+0****                 ACCOUNTING INFORMATION                                TEMPERATURE =   25.000 DEG C
+
+0*************************************************************************************************************************
+
+
+
+
+
+Number of nodes                     196
+Number of intrinsic nodes           64
+Number of input signals             0
+Number of resistors                 131
+Number of floating capacitors       0
+Number of grounded capacitors       78
+Number of inductors                 0
+Number of voltage sources           0
+Number of current sources           0
+Number of dependent sources         0
+Number of diodes                    0
+Number of BJT                       0
+Number of JFET                      0
+Number of MOS                       16
+Number of SWITCHES                  0
+Number of transmission lines        0
+ADMS devices                        4
+Total number of elements simulated  229
+Number of equations                 199
+Number of non-zero terms            1266
+Percent Zeros                       96.8
+Number of Newton iterations         33463
+Average number of Newton iterations 3.085
+Number of accepted time steps       10848
+Number of rejected time steps       1282
+      due to LTE                    995
+      due to Newton                 34
+Evaluation of active devices        355003
+Memory size (MB)                    490.6
+Number of time point rejection due 
+  to 'DIGITAL' solver ..............253
+Memory size (MB)                    490.6

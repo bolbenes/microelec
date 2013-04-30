@@ -10,11 +10,11 @@
     </macroList>
     <portList>
 
+      <port name='start_tick' direction='input' type='' kind=''> </port>
+      <port name='stop_tick' direction='input' type='' kind=''> </port>
       <port name='capa_charge_val' direction='input' type='wreal' kind=''> </port>
       <port name='internal_energy' direction='output' type='wreal' kind=''> </port>
       <port name='fin_test' direction='input' type='' kind=''> </port>
-      <port name='\_ana_evt_sig_#1#66#\ ' direction='input' type='' kind=''> </port>
-      <port name='\_ana_evt_sig_#2#69#\ ' direction='input' type='' kind=''> </port>
 
     </portList>
 </interfaceDefinition>

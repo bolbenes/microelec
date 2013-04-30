@@ -11,6 +11,8 @@ module conso_dyn_bd(
                         input wreal din1,
 			input wreal din2,
 			input wreal tt_val,
+			input wire start_tick,
+			input wire stop_tick,
 			input wreal capa_charge_val,
                         output wreal internal_energy,
                         input wire fin_test
@@ -30,7 +32,7 @@ parameter real  output_threshold_pct      	= 0.5 ; // fraction de la pleine excu
 electrical din_real1     ; // Signal electrique dérivé de din
 electrical din_real2     ; // Signal electrique dérivé de din
 electrical dout         ; // Signal electrique de sortie de l'additionneur
-real energy;
+real integral;
 // Les références d'alimentation
 electrical vss          ; // La référence de masse
 ground vss              ; // C'est une référence globale associée au noeud "0" du simulateur électrique
@@ -42,8 +44,8 @@ branch (dout,vss) capa_charge         ; //  La capacité de charge en sortie
 // Le circuit à tester
 AND2_X4 and2 (.VDD(vdd_dut),.VSS(vss),.A1(din_real1),.A2(din_real2),.ZN(dout)) ;
 // Le génrateur de transitions réalistes
-cmos_transition cmos_tr1(.din(din1),.dout(din_real),.tt_val(tt_val)) ;
-cmos_transition cmos_tr2(.din(din2),.dout(din_real),.tt_val(tt_val)) ;
+cmos_transition cmos_tr1(.din(din1),.dout(din_real1),.tt_val(tt_val)) ;
+cmos_transition cmos_tr2(.din(din2),.dout(din_real2),.tt_val(tt_val)) ;
 
 analog
 begin
@@ -51,7 +53,7 @@ begin
  V(alimentation_dut) <+ alim_voltage ;
  // La capacité de charge en sortie, dont la valeur est réglée dans le testbench SystemVerilog
  I(capa_charge) <+ ddt(V(capa_charge))*capa_charge_val;
- energy = idt(V(alimentation_dut)*I(alimentation_dut));
+ integral = -idt(V(alimentation_dut)*I(alimentation_dut));
  @(posedge fin_test)
    $finish ;
 end
@@ -61,14 +63,18 @@ end
 // Le monde numérique
 ///////////////////////////////////////////////////////////////
 
-real intern_energy	 ; 
+real start_integral;
+real stop_integral; 
 always
- @(cross(V(capa_charge)-alim_voltage*input_threshold_pct, +1,1e-15,1e-4 ))
-    intern_energy = intern_energy-capa_charge_val*V(capa_charge)*V(capa_charge)/2;
+ @(posedge start_tick or negedge start_tick)
+    start_integral = integral;
 always
- @(cross(V(capa_charge)-alim_voltage*input_threshold_pct, -1,1e-15,1e-4 ))
-    intern_energy = intern_energy-capa_charge_val*V(capa_charge)*V(capa_charge)/2;
+ @(posedge stop_tick)
+    stop_integral = integral;
+always
+ @(negedge stop_tick)
+    stop_integral = integral-capa_charge_val*V(alimentation_dut)*V(alimentation_dut);
 
 // transmission des valeurs calculées vers le monde numérique
-assign internal_energy = intern_energy;
+assign internal_energy = stop_integral-start_integral;
 endmodule

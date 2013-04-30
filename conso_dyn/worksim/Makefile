@@ -17,7 +17,7 @@ compile: .tagcomp
 	touch $@
 
 simu_gui: .mapped .tagcomp
-	vasim -L nangatelib -cmd tmp.cmd  $(TB_MODULE)
+	vasim -L nangatelib -cmd tmp.cmd  $(TB_MODULE) -do tmp.do
 
 simu_batch: .mapped .tagcomp
 	vasim -c -L nangatelib -cmd tmp.cmd  $(TB_MODULE) -do tmp.do

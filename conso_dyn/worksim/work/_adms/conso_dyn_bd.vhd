@@ -14,6 +14,8 @@ ENTITY conso_dyn_bd IS
     SIGNAL din1 : IN real;
     SIGNAL din2 : IN real;
     SIGNAL tt_val : IN real;
+    SIGNAL start_tick : IN STD_LOGIC;
+    SIGNAL stop_tick : IN STD_LOGIC;
     SIGNAL capa_charge_val : IN real;
     SIGNAL internal_energy : OUT real;
     SIGNAL fin_test : IN STD_LOGIC);

@@ -12,16 +12,22 @@ parameter real digital_tick    = 7          ;    // (ns) Temps entre deux transi
 logic  din1                ; // Signal logique destiné à piloter le test
 logic  din2            ; // Signal logique constant sur l'autre entrée
 bit    fin_test           ; // vaut 0 au débu de la simu
+bit    stop_tick           ; // bit qui, quand il change, ordonne la prise de mesure de stop_integral
+bit    start_tick           ; // bit qui, quand il change, ordonne la prise de mesure de start_integral
 // Les variables adaptées ou mesurées exprimées sous forme de signaux réels. 
 real capa_charge_val      ; // La valeur de la capacité de charge
 real tt_val               ; // La valeur du temps de transition en entrée
 real internal_energy   	  ; // La mesure du temsp de propag du circuit
+real intensity;
 
 // On instancie la maquette de test, en utilisant la connection générique pour simplifie l'écriture
 conso_dyn_bd bd0  (
                           .din1(din1),
 			  .din2(din2),
+			  .start_tick(start_tick),
+			  .stop_tick(stop_tick),
                           .tt_val(tt_val),
+			  .intensity(intensity),
                           .capa_charge_val(capa_charge_val),
                           .internal_energy(internal_energy),
                           .fin_test(fin_test)
@@ -50,7 +56,7 @@ begin:simu
    din1 = 1 ;
    din2 = 1 ;
    // Création du fichier de résultats
-   File = $fopen("AND2_X4_internal_power.dat") ;
+   File = $fopen("AND2_X4_internal_power_1.dat") ;
    // Boucle principale sur la liste des pentes d'entrée
    for(slope_index=0;slope_index<NBSLOPES;slope_index++) 
    begin
@@ -59,24 +65,39 @@ begin:simu
      // Boucle secondaire sur la liste des capa de charge
      for(capa_index=0;capa_index<NBCAPA;capa_index++) 
      begin
-       // Attention on change la valeur de la capa de charge lorsque l'on est sur que rien ne bouge dans la partie analogique
+       // On change la valeur de la capa de charge et on prend la mesure de start_integral lorsque l'on est sur que rien ne bouge dans la partie analogique
        #(digital_tick) ; capa_charge_val = capa_values[capa_index]*1.0e-15  ;
+	start_tick = 1;
        // On provoque une montée du signal de commande A1
        #(digital_tick) ; din1 = 0 ;
-       // On récupère la mesure
-       #(digital_tick) ; internal_energy_A1_fall[slope_index][capa_index] = internal_energy/1.0e-9 ;
+       // On prend la mesure de stop_integral
+       #(digital_tick) ; stop_tick = 1;
+       // On récupère l'énergie interne après avoir attendu un certain temps
+       #(digital_tick) ; internal_energy_A1_fall[slope_index][capa_index] = internal_energy/1.0e-15 ;
+       // On prend la mesure de start_integral
+       #(digital_tick) ; start_tick = 0;
        // On provoque une descente du signal de commande A1
        #(digital_tick) ; din1 = 1 ;
-       // On récupère la mesure
-       #(digital_tick) ; internal_energy_A1_rise[slope_index][capa_index] = internal_energy/1.0e-9 ;
+       // On prend la mesure
+       #(digital_tick) ; stop_tick = 0;
+       // On récupère l'énergie interne après avoir attendu un certain temps
+       #(digital_tick) ; internal_energy_A1_rise[slope_index][capa_index] = internal_energy/1.0e-15 ;
+       // On prend la mesure de start_integral
+       #(digital_tick) ; start_tick = 1;
        // On provoque une montée du signal de commande A2
        #(digital_tick) ; din2 = 0 ;
-       // On récupère la mesure
-       #(digital_tick) ; internal_energy_A2_fall[slope_index][capa_index] = internal_energy/1.0e-9 ;
+       // On prend la mesure
+       #(digital_tick) ; stop_tick = 1;
+       // On récupère l'énergie interne après avoir attendu un certain temps
+       #(digital_tick) ; internal_energy_A2_fall[slope_index][capa_index] = internal_energy/1.0e-15 ;
+       // On prend la mesure de start_integral
+       #(digital_tick) ; start_tick = 0;
        // On provoque une descente du signal de commande A2
        #(digital_tick) ; din2 = 1 ;
-       // On récupère la mesure
-       #(digital_tick) ; internal_energy_A2_rise[slope_index][capa_index] = internal_energy/1.0e-9 ;
+       // On prend la mesure
+       #(digital_tick) ; stop_tick = 0;
+       // On récupère l'énergie interne après avoir attendu un certain temps
+       #(digital_tick) ; internal_energy_A2_rise[slope_index][capa_index] = internal_energy/1.0e-15 ;
      end
    end
    // On a récupéré tous les temps de propagation, il n'y a plus qu'à écrire dans un fichier 
