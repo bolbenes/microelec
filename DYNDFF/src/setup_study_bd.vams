@@ -17,7 +17,9 @@ module setup_study_bd(
                         input  wreal capa_charge_val ,   // Valeur de la capacité de charge en sortie de l'inverseur
                         input  wreal tt_val_clk          ,   // Le temps de transition en entrée du signal de test
                         input  wreal tt_val_d          ,   // Le temps de transition en entrée du signal de test
-                        output wreal q, // instant de fin de transition pour dout
+                        output wreal clk_rise_time,
+                        output wreal d_rise_time,
+                        inout electrical dout, // instant de fin de transition pour dout
                         input  wire fin_test             // Signalement de la fin de la simu par le testbench
                           ) ;
 
@@ -37,7 +39,7 @@ parameter real  output_threshold_pct      	= 0.5 ; // fraction de la pleine excu
 // Les signaux logiques et électriques
 electrical din_real     ; // Signal electrique dérivé de din destiné à piloter l'inverseur
 electrical clk_real     ; // Signal electrique dérivé de din destiné à piloter l'inverseur
-electrical dout         ; // Signal electrique de sortie de l'inverseur
+//electrical dout         ; // Signal electrique de sortie de l'inverseur
 
 // Les références d'alimentation
 electrical vss          ; // La référence de masse
@@ -69,13 +71,21 @@ begin
    $finish ;
 end
 
-real qout;
-// detect falling edge of clk
+real tmp_clk_rise_time;
+real tmp_d_rise_time;
+// detection of rising signals
 always
- @(cross(V(clk_real)-alim_voltage*output_threshold_pct, +1,1e-15,1e-4 ))
-    qout = V(capa_charge) ;
+ @(cross(V(clk_real)-alim_voltage*input_threshold_pct, -1,1e-15,1e-4 ))
+    tmp_clk_rise_time = $abstime ;
 
-assign q = qout;
+// detection of rising signals
+always
+ @(cross(V(din_real)-alim_voltage*input_threshold_pct, -1,1e-15,1e-4 ))
+    tmp_d_rise_time = $abstime ;
+
+
+assign d_rise_time = tmp_d_rise_time;
+assign clk_rise_time = tmp_clk_rise_time;
 
 ///////////////////////////////////////////////////////////////
 // Le monde numérique
