@@ -1,0 +1,117 @@
+// Maquette de test écrite en language Verilog-ams
+// pour extraire le temps de propagation en descente d'un inverseur
+
+// On utilse 1fs dans le timescale pour que les mesures de temps dans le domaine "numérique" soient précises.
+// (YM : à confirmer, voir l'impact réel)
+`timescale 1ps/1fs
+
+// Pour AMS
+`include "constants.vams"
+`include "disciplines.vams"
+`include "DYNDFF_X1.vams"
+`include "cmos_transition.vams"
+
+// Module auxiliaire pour générer des transisitions
+module hold_study_bd(
+                        input wire din , // D input
+                        input wire clk , //clk
+                        input wreal capa_charge_val , // Valeur de la capacité de charge en sortie de l'inverseur
+                        input wreal tt_val_clk , // Le temps de transition en entrée du signal de test
+                        input wreal tt_val_d , // Le temps de transition en entrée du signal de test
+                        output wreal clk_rise_time,
+                        output wreal d_fall_time,
+                        inout electrical dout, // instant de fin de transition pour dout
+                        input wire fin_test // Signalement de la fin de la simu par le testbench
+                          ) ;
+
+
+
+// Paramètre de tension récupéré du fichier de commande
+parameter real alim_voltage = $param("valim") ; // volts
+// Noms et valeurs issus du fichier au format "Liberty"
+parameter real slew_lower_threshold_pct = 0.3 ; // fraction de la pleine excursion
+parameter real slew_upper_threshold_pct = 0.7 ; // fraction de la pleine excursion
+parameter real input_threshold_pct = 0.5 ; // fraction de la pleine excursion
+parameter real output_threshold_pct = 0.5 ; // fraction de la pleine excursion
+///////////////////////////////////////////////////////////////
+// Le monde Analogique
+///////////////////////////////////////////////////////////////
+
+// Les signaux logiques et électriques
+electrical din_real ; // Signal electrique dérivé de din destiné à piloter l'inverseur
+electrical clk_real ; // Signal electrique dérivé de din destiné à piloter l'inverseur
+//electrical dout ; // Signal electrique de sortie de l'inverseur
+
+// Les références d'alimentation
+electrical vss ; // La référence de masse
+ground vss ; // C'est une référence globale associée au noeud "0" du simulateur électrique
+electrical vdd_dut ; // L'alimentation du dispositif à tester
+
+// Les générateurs de tension fixes et variables, les éléments passifs sont déclarés par
+// des "branches". Ce n'est pas obligatoire mais plus lisible.
+branch (vdd_dut,vss) alimentation_dut ; // L'alimentation du dispositif à mesurer
+branch (dout,vss) capa_charge ; // La capacité de charge en sortie
+
+// Le circuit à tester
+DYNDFF_X1 dyn_dff (.VDD(vdd_dut),.VSS(vss),.D(din_real),.CK(clk_real),.Q(dout)) ;
+
+
+// Le génrateur de transitions réalistes
+cmos_transition cmos_tr_d(.din(din),.dout(din_real),.tt_val(tt_val_d)) ;
+cmos_transition cmos_tr_clk(.din(clk),.dout(clk_real),.tt_val(tt_val_clk)) ;
+
+// La circuiterie en Verilog-A. Un seul processus "analog" peut être déclaré dans le modèle
+// Toute la partie "analogique" doit être décrite ici.
+analog
+begin
+ // La source d'alimentation de la logique en test
+ V(alimentation_dut) <+ alim_voltage ;
+ // La capacité de charge en sortie, dont la valeur est réglée dans le testbench SystemVerilog
+ I(capa_charge) <+ ddt(V(capa_charge))*capa_charge_val;
+ @(posedge fin_test)
+   $finish ;
+end
+
+real tmp_clk_rise_time;
+real tmp_d_fall_time;
+// detection of rising signals
+always
+ @(cross(V(clk_real)-alim_voltage*input_threshold_pct, +1,1e-15,1e-4 ))
+    tmp_clk_rise_time = $abstime ;
+
+// detection of rising signals
+always
+ @(cross(V(din_real)-alim_voltage*input_threshold_pct, -1,1e-15,1e-4 ))
+    tmp_d_fall_time = $abstime ;
+
+
+assign d_fall_time = tmp_d_fall_time;
+assign clk_rise_time = tmp_clk_rise_time;
+
+///////////////////////////////////////////////////////////////
+// Le monde numérique
+///////////////////////////////////////////////////////////////
+
+// Mesure du temp de propagation dans l'inverseur
+// On utilise la capacité de synchroniser des processus du monde "numérique"
+// avec des évènements du monde analogique.
+
+// La mesure du temps de propagation de l'inverseur en charge du DUT
+// On ne peut transférer la valeur mesurée vers le noyaux de simulation numérique
+// que par un signal "wreal". Mais on ne peut extraire qu'un "real" via les évènements ???
+// Donc on passe par une variable intermédiaire...
+// (YM : à confirmer, voir si on ne peut faire plus simple)
+
+// transmission des valeurs calculées vers le monde numérique
+// Vérification des temps de montée en entrée de l'inverseur
+// Pour vérifier le générateur...
+//real tmp0,tmp1 ;
+//always
+// @(cross(V(din_real)-alim_voltage*0.3, +1,1e-15,1e-4 ))
+// tmp0 = $abstime ;
+//always
+// @(cross(V(din_real)-alim_voltage*0.7, +1,1e-15,1e-4 ))
+// tmp1 = $abstime - tmp0 ;
+//
+
+endmodule

@@ -1,0 +1,9 @@
+NET :timing_study_tb:q
+	AtoD CONVERTER A2D_STD ELDO ["MODE = STD_LOGIC" "VTH1 = 0.55" "VTH2 = 0.55"]
+		DEFHOOK /stud/users/promo14/hilaire/CBN/Thold/worksim/tmp.cmd(19)
+		DISCIPLINE ELECTRICAL
+		TYPE IEEE:STD_LOGIC_1164.STD_LOGIC
+		PORTS :timing_study_tb:bd0:dout;
+		WAVEFORM NAME :timing_study_tb:q
+END NET;
+

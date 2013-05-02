@@ -1,0 +1,103 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 d/stud/users/promo14/hilaire/CBN/Thold/worksim
+!i10d 8192
+!i10e 25
+!i10f 100
+:cmos_transition
+Z1 VndB3OD71?3F2Om13QX20Z7
+Z2 !s206 1367486644
+Z3 w1367224121
+Z4 !s205  +ogr  -k 2005 
+Z5 ncmos_transition
+Z6 F/stud/users/promo14/hilaire/CBN/Thold/src/cmos_transition.vams
+Z7 d/stud/users/promo14/hilaire/CBN/Thold/worksim
+Z8 !s208 ndB3OD71?3F2Om13QX20Z7
+!s20a 0
+!s209 6
+!s207 2
+!s204 1
+!s203 5834
+!s202 270
+!s201 8
+!s8d adms
+:DYNDFF_X1
+Z9 VnCB2GN51B`51c971@QE1_4
+Z10 w1367482454
+R4
+Z11 nDYNDFF_X1
+Z12 F/stud/users/promo14/hilaire/CBN/Thold/src/DYNDFF_X1.vams
+R7
+R2
+Z13 !s208 nCB2GN51B`51c971@QE1_4
+!s20a 1
+!s209 4
+!s207 1
+!s204 1
+!s203 4309
+!s202 231
+!s201 8
+!s8d adms
+:hold_study_bd
+Z14 !s208 Il708OF3cG23D8120J3344
+Z15 VIl708OF3cG23D8120J3344
+R2
+Z16 w1367486611
+R4
+Z17 !s203 52513
+Z18 nhold_study_bd
+Z19 F/stud/users/promo14/hilaire/CBN/Thold/src/hold_study_bd.vams
+R7
+!s20a 0
+!s209 6
+!s207 3
+!s204 1
+!s202 1287
+!s201 8
+!s8d adms
+vtiming_study_tb
+Z20 DXx6 sv_std 3 std 0 22 `a<MJET1=lN@jzbA7kHm;1
+!s110 1367486882
+!i10b 1
+Z21 !s100 ck>^eOo_<]6ekT^j469?G2
+Z22 IZg`i>:`4o;akc?jQ@?H0G0
+Z23 V`JN@9S9cnhjKRR_L]QIcM3
+Z24 !s105 timing_study_tb_sv_unit
+S1
+R7
+Z25 w1367484812
+Z26 8/stud/users/promo14/hilaire/CBN/Thold/src/timing_study_tb.sv
+Z27 F/stud/users/promo14/hilaire/CBN/Thold/src/timing_study_tb.sv
+L0 6
+Z28 OL;L;10.2;57
+r1
+!s85 0
+31
+!s108 1367486882.482666
+!s107 /stud/users/promo14/hilaire/CBN/Thold/src/timing_study_tb.sv|
+Z29 !s90 -work|work|/stud/users/promo14/hilaire/CBN/Thold/src/timing_study_tb.sv|
+Z30 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+vvloga_dig_submod_hold_study_bd
+Z31 IbHF6?AT4=hi?QYEJhA_<^2
+R23
+R7
+Z32 w1367486645
+Z33 8/stud/users/promo14/hilaire/CBN/Thold/src/hold_study_bd.vams
+R19
+Z34 8/stud/users/promo14/hilaire/CBN/Thold/worksim/work/_CG/vloga_dig_submod_hold_study_bd.v
+Z35 F/stud/users/promo14/hilaire/CBN/Thold/worksim/work/_CG/vloga_dig_submod_hold_study_bd.v
+L0 4
+R28
+r1
+31
+Z36 o-work /stud/users/promo14/hilaire/CBN/Thold/worksim/work -quiet -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z37 !s100 5gk_On7TMaW:Wgmg01zb<0
+Z38 !s107 /stud/users/promo14/hilaire/CBN/Thold/worksim/work/_CG/vloga_dig_submod_hold_study_bd.v|
+Z39 !s110 1367486646
+Z40 !s108 1367486646.163514
+Z41 !s90 -work|/stud/users/promo14/hilaire/CBN/Thold/worksim/work|-adms_unitsinfo|/tmp/valogsYEozF|-quiet|/stud/users/promo14/hilaire/CBN/Thold/worksim/work/_CG/vloga_dig_submod_hold_study_bd.v|
+!i10b 1
+!s85 0

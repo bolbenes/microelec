@@ -1,0 +1,34 @@
+`include "disciplines.vams"
+// *******************************************************************************
+// Cellname: DYNDFF_X1. *
+// *
+// *******************************************************************************
+module DYNDFF_X1 (D, CK, Q, VDD, VSS);
+  inout D, CK, Q, VDD, VSS ;
+  electrical D, CK, Q, VDD, VSS ;
+  // .PININFO D:I CK:I Q:O VDD:P VSS:G
+
+// La première branche
+electrical G1,Z1;
+  PMOS_VTL #( .W(0.315000e-6), .L(0.050000e-6)) MP11 (VDD, D, Z1, VDD);
+  PMOS_VTL #( .W(0.315000e-6), .L(0.050000e-6)) MP12 ( Z1, CK, G1, VDD);
+  NMOS_VTL #( .W(0.210000e-6), .L(0.050000e-6)) MN11 ( G1, D, VSS, VSS);
+
+// La deuxième branche
+electrical G2,Z2;
+  PMOS_VTL #( .W(0.315000e-6), .L(0.050000e-6)) MP21 (VDD, CK, G2, VDD);
+  NMOS_VTL #( .W(0.210000e-6), .L(0.050000e-6)) MN22 ( G2, G1, Z2, VSS);
+  NMOS_VTL #( .W(0.210000e-6), .L(0.050000e-6)) MN21 ( Z2, CK, VSS, VSS);
+
+// La troisième branche
+electrical QB,Z3;
+  PMOS_VTL #( .W(0.315000e-6), .L(0.050000e-6)) MP31 (VDD, G2, QB, VDD);
+  NMOS_VTL #( .W(0.210000e-6), .L(0.050000e-6)) MN32 ( QB, CK, Z3, VSS);
+  NMOS_VTL #( .W(0.210000e-6), .L(0.050000e-6)) MN31 ( Z3, G2, VSS, VSS);
+
+// La quatrième branche (L'inverseur final)
+PMOS_VTL #( .W(0.630000e-6), .L(0.050000e-6)) MP41 (VDD, QB, Q, VDD);
+NMOS_VTL #( .W(0.415000e-6), .L(0.050000e-6)) MN41 (VSS, QB, Q, VSS);
+
+endmodule
+

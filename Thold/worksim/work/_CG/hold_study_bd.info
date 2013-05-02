@@ -1,0 +1,19 @@
+[VERILOG-AMS Module]
+NAME = hold_study_bd 
+SOURCE = /stud/users/promo14/hilaire/CBN/Thold/src/hold_study_bd.vams 
+LINE = 15
+[Generics]
+( slew_lower_threshold_pct   real   3.000000e-01 ) 
+( slew_upper_threshold_pct   real   7.000000e-01 ) 
+( input_threshold_pct   real   5.000000e-01 ) 
+( output_threshold_pct   real   5.000000e-01 ) 
+[Ports]
+(PORT SIGNAL din  IN STD_LOGIC)
+(PORT SIGNAL clk  IN STD_LOGIC)
+(PORT SIGNAL capa_charge_val  IN REAL)
+(PORT SIGNAL tt_val_clk  IN REAL)
+(PORT SIGNAL tt_val_d  IN REAL)
+(PORT SIGNAL clk_rise_time  OUT REAL)
+(PORT SIGNAL d_fall_time  OUT REAL)
+(PORT TERMINAL dout INOUT electrical)
+(PORT SIGNAL fin_test  IN STD_LOGIC)

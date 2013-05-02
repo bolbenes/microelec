@@ -1,0 +1,11 @@
+[VERILOG-AMS Module]
+NAME = DYNDFF_X1 
+SOURCE = /stud/users/promo14/hilaire/CBN/Thold/src/DYNDFF_X1.vams 
+LINE = 6
+[Generics]
+[Ports]
+(PORT TERMINAL D INOUT electrical)
+(PORT TERMINAL CK INOUT electrical)
+(PORT TERMINAL Q INOUT electrical)
+(PORT TERMINAL VDD INOUT electrical)
+(PORT TERMINAL VSS INOUT electrical)

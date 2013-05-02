@@ -1,0 +1,20 @@
+## ADMS GUI CONTEXT FILE, FORMAT VERSION 1.0 ##
+
+proc reuseproc {} {
+global vsimPriv design structure 
+global PrefReuse _prefReuse 
+if {[string compare [design_top] ":timing_study_tb"] != 0} {
+gui_reuse_aborted 1 :timing_study_tb
+return
+}
+tcl::HistClear 
+tcl::HistAdd {vasim -L nangatelib -cmd tmp.cmd timing_study_tb -do tmp.do}
+tcl::HistAdd {do tmp.do}
+## Last actions : ## 
+
+set _prefReuse(ChoiseDone) 1 
+
+}
+catch {reuseproc}
+
+ 
