@@ -63,7 +63,7 @@ begin:simu
     
 
    // On teste A1 : donc on met A2 à 1 pour avoir une monté en sortie   
-   din = 0 ;
+   din = 1 ;
    clk = 1 ;
    capa_charge_val = load_capacitance*1.0e-15;
     // Result for A1
@@ -80,7 +80,7 @@ begin:simu
        // On provoqueune monte du signal de commande : donc du signal de sortie
 
        shorter = 1;
-       for (int i = 2000 ; i>=-2000; i--)
+       for (int i = 1200 ; i>=-2000; i--)
            begin
             if (d_tran_index == 0 && shorter == 1)
                 begin
@@ -92,10 +92,10 @@ begin:simu
                     i = 300;
                     shorter = 0;
                 end  
-            #(digital_tick-i*setup_step) ; din = 1 ;
+            #(digital_tick-i*setup_step) ; din = 0 ;
             #(digital_tick/2 + i*setup_step); // resync on clk
-            din = 0;
-            if (q == 0)
+            din = 1;
+            if (q == 1)
                 begin
                     // on majore de 10%
                     tab_setup_time[clk_tran_index][d_tran_index] = 1.05*(clk_time_rise- d_time_rise)/1.0e-6;
@@ -119,10 +119,10 @@ begin:simu
 
 
    // Write result in file
-   File = $fopen("/tmp/DFF_X1_setup_time.dat");
+   File = $fopen("/tmp/DFF_X1_setup_time_falling.dat");
    $fwrite (File, "timing () {\n\n");   
    $fwrite (File, "related_pin : \"CK\n;\n");   
-   $fwrite (File, "timing_type : setup_rising;\n");   
+   $fwrite (File, "timing_type : setup_falling;\n");   
    $fwrite (File, "rise_constraint(Setup_3_3){\n");
    $fwrite (File, "index_1( \"");
    for(int j=0; j< NBSLOPES_CK; j++)
