@@ -3,7 +3,7 @@ timing () {
 related_pin : "CK
 ;
 timing_type : setup_falling;
-rise_constraint(Setup_3_3){
+fall_constraint(Setup_3_3){
 index_1( "0.00117378, 0.04493240, 0.19853500");
 index_2( "0.00117378, 0.04493240, 0.19853500");
     values ("0.04199800,0.04071082,0.03619256", \
